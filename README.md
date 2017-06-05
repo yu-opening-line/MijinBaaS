@@ -1,9 +1,9 @@
 # Very simple deployment of an Linux VM
 
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/http://github.com/yu000/MijinBaaS/blob/master/azuredeploy.json" target="_blank">
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-simple-linux/azuredeploy.json" target="_blank">
     <img src="http://azuredeploy.net/deploybutton.png"/>
 </a>
-<a href="http://armviz.io/#/?load=http://github.com/yu000/MijinBaaS/blob/master/azuredeploy.json" target="_blank">
+<a href="http://armviz.io/#/?load=hhttps://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-simple-linux/azuredeploy.json" target="_blank">
     <img src="http://armviz.io/visualizebutton.png"/>
 </a>
 
