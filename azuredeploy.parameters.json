@@ -5,7 +5,7 @@
     "mijin_vm_prefix": {
       "value": "test1"
     },
-    "add_itional_local_IPs": {
+    "mijin_vm_number": {
       "value": "test2"
     }
   }
