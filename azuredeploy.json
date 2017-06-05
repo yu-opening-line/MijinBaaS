@@ -9,7 +9,7 @@
       "mijin_vm_number": {
           "defaultValue": "1",
           "type": "String"
-      },
+      }
     },
     "variables": {
       "virtualMachines_name": "[concat(parameters('mijin_vm_prefix'),'-mijin-vm', parameters('mijin_vm_number'))]",
