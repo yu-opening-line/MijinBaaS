@@ -3,11 +3,15 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
       "mijin_vm_prefix": {
-          "defaultValue": "t",
+          "defaultValue": "",
           "type": "String"
       },
       "mijin_vm_number": {
           "defaultValue": "1",
+          "type": "String"
+      },
+      "add_itional_local_IPs": {
+          "defaultValue": "",
           "type": "String"
       }
     },
@@ -26,7 +30,7 @@
             "type": "Microsoft.Compute/virtualMachines",
             "name": "[variables('virtualMachines_name')]",
             "apiVersion": "2016-04-30-preview",
-            "location": "centralus",
+            "location": "[resourceGroup().location]",
             "properties": {
                 "hardwareProfile": {
                     "vmSize": "Standard_A3"
@@ -90,7 +94,7 @@
             "type": "Microsoft.Network/networkInterfaces",
             "name": "[variables('networkInterfaces_name')]",
             "apiVersion": "2016-03-30",
-            "location": "centralus",
+            "location": "[resourceGroup().location]",
             "properties": {
                 "ipConfigurations": [
                     {
@@ -126,7 +130,7 @@
             "type": "Microsoft.Network/networkSecurityGroups",
             "name": "[variables('networkSecurityGroups_nsg_name')]",
             "apiVersion": "2016-03-30",
-            "location": "centralus",
+            "location": "[resourceGroup().location]",
             "properties": {
                 "securityRules": [
                     {
@@ -177,7 +181,7 @@
             "type": "Microsoft.Network/publicIPAddresses",
             "name": "[variables('publicIPAddresses_ip_name')]",
             "apiVersion": "2016-03-30",
-            "location": "centralus",
+            "location": "[resourceGroup().location]",
             "properties": {
                 "publicIPAllocationMethod": "Static",
                 "idleTimeoutInMinutes": 4
@@ -189,7 +193,7 @@
             "type": "Microsoft.Network/virtualNetworks",
             "name": "[variables('virtualNetworks_vnet_name')]",
             "apiVersion": "2016-03-30",
-            "location": "centralus",
+            "location": "[resourceGroup().location]",
             "properties": {
                 "addressSpace": {
                     "addressPrefixes": [
@@ -217,7 +221,7 @@
             "kind": "Storage",
             "name": "[variables('storageAccounts_diag_name')]",
             "apiVersion": "2016-01-01",
-            "location": "centralus",
+            "location": "[resourceGroup().location]",
             "tags": {},
             "properties": {},
             "dependsOn": []
@@ -232,7 +236,7 @@
             "kind": "Storage",
             "name": "[variables('storageAccounts_disks_name')]",
             "apiVersion": "2016-01-01",
-            "location": "centralus",
+            "location": "[resourceGroup().location]",
             "tags": {},
             "properties": {},
             "dependsOn": []
@@ -242,7 +246,7 @@
             "type": "Microsoft.Compute/virtualMachines/extensions",
             "name": "[concat(variables('virtualMachines_name'),'/extension')]",
             "apiVersion": "2016-03-30",
-            "location": "Central US",
+            "location": "[resourceGroup().location]",
             "properties": {
                 "publisher": "Microsoft.OSTCExtensions",
                 "type": "CustomScriptForLinux",
