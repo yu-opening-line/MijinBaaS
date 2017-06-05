@@ -3,7 +3,7 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
       "mijin_vm_prefix": {
-          "defaultValue": "",
+          "defaultValue": "test",
           "type": "String"
       },
       "mijin_vm_number": {
@@ -11,7 +11,7 @@
           "type": "String"
       },
       "add_itional_local_IPs": {
-          "defaultValue": "",
+          "defaultValue": "192.168.52.55",
           "type": "String"
       }
     },
