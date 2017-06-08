@@ -255,7 +255,7 @@
                     "fileUris": [
                         "https://hitachimijin3diag972.blob.core.windows.net/scripts/install_mijin.sh"
                     ],
-                    "commandToExecute": "[concat('sh install_mijin.sh')]"
+                    "commandToExecute": "[concat('sh install_mijin.sh ', parameters('add_itional_local_IPs'))]"
                 }
             },
             "resources": [],
