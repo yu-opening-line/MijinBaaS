@@ -26,10 +26,10 @@
         },
         "parameters": {
           "mijin_vm_prefix": {
-              "value": "[parameters('mijin_vm_prefix')]"
+              "value": {"[parameters('mijin_vm_prefix')]"}
           },
           "add_itional_local_IPs": {
-              "value": "[parameters('add_itional_local_IPs')]"
+              "value": {"[parameters('add_itional_local_IPs')]"}
           }
         }
       }
