@@ -54,7 +54,7 @@
               "value": "[parameters('add_itional_local_IPs')]"
           }
         },
-      }
+      },
       "copy": {
         "name"  : "mijin_deploy_copy",
         "count" : 4
