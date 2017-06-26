@@ -15,7 +15,7 @@
   },
   "resources": [
     {
-      "apiVersion": "2015-06-15",
+      "apiVersion": "2016-07-01",
       "name": "mijin_vm_deploy",
       "type": "Microsoft.Resources/deployments",
       "properties": {
