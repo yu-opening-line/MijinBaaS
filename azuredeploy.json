@@ -32,7 +32,7 @@
   "resources": [
     {
       "apiVersion": "2017-05-10",
-      "name": "[concat('mijin_vm_deploy', copyIndex()]",
+      "name": "[concat('mijin_vm_deploy', copyIndex())]",
       "type": "Microsoft.Resources/deployments",
       "properties": {
         "mode": "incremental",
@@ -65,7 +65,7 @@
       "type": "Microsoft.Compute/virtualMachines/extensions",
       "name": "[concat('mijin_script_deploy', copyIndex(), '/extension')]",
       "apiVersion": "2016-03-30",
-      "location": "[variables('location0')]",
+      "location": "[variables(concat('location', copyIndex()))]",
       "properties": {
           "publisher": "Microsoft.OSTCExtensions",
           "type": "CustomScriptForLinux",
