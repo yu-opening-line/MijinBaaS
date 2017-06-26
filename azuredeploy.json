@@ -9,7 +9,7 @@
     "add_itional_local_IPs": {
         "defaultValue": "",
         "type": "String"
-    }
+    },
   },
   "variables": {
   },
@@ -35,4 +35,28 @@
       }
     }
   ]
+
+  "resources": [
+    {
+        "apiVersion": "2017-05-10",
+        "name": "mijinvmdeploy",
+        "type": "Microsoft.Resources/deployments",
+        "properties": {
+          "mode": "incremental",
+          "templateLink": {
+            "uri": "https://github.com/yu000/MijinBaaS/blob/master/vmdeploy.json",
+            "contentVersion": "1.0.0.0"
+          },
+          "parameters": {
+            "mijin_vm_prefix":{"value": "[parameters('mijin_vm_prefix')]"}
+          }
+        }
+    }
+  ]
+
+
+
+
+
+
 }

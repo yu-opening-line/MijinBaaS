@@ -10,6 +10,7 @@
           "type": "String"
       },
       "add_itional_local_IPs": {
+          "defaultValue": "11",
           "type": "String"
       }
     },
