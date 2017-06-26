@@ -12,7 +12,7 @@
       "properties": {
         "mode": "incremental",
         "templateLink": {
-          "uri": "https://hitachimijin3diag972.blob.core.windows.net/scripts/vmdeploy.json",
+          "uri": "[concat('https://hitachimijin3diag972.blob.core.windows.net/scripts/vmdeploy.json']",
           "contentVersion": "1.0.0.0"
         }
       }
