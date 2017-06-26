@@ -18,35 +18,27 @@
           "defaultValue": "",
           "type": "String"
       },
-      "mijin_vm_number": {
-          "defaultValue": "1",
-          "type": "String"
-      },
       "add_itional_local_IPs": {
           "defaultValue": "",
           "type": "String"
       }
     },
     "variables": {
-      "location0": "[resourceGroup().location]",
-      "location1": "[parameters('2nd_location')]",
-      "location2": "[parameters('3rd_location')]",
-      "location3": "[parameters('4th_location')]"
     },
     "resources": [
         {
-          "apiVersion": "2016-04-30",
+          "apiVersion": "2017-05-10",
           "name": "[concat('mijin_vm_deploy1')]",
           "type": "Microsoft.Resources/deployments",
           "properties": {
             "mode": "incremental",
             "templateLink": {
-              "uri": "https://github.com/yu000/MijinBaaS/blob/master/vmdeploy.json",
+              "uri": "http://github.com/yu000/MijinBaaS/blob/master/vmdeploy.json",
               "contentVersion": "1.0.0.0"
             },
             "parameters": {
               "location": {
-                  "value": "[variables('location1')]"
+                  "value": "West Europe"
               },
               "mijin_vm_prefix": {
                   "value": "[parameters('mijin_vm_prefix')]"
