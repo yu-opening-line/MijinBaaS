@@ -35,7 +35,14 @@
       "name": "[concat('mijin_vm_deploy', copyIndex())]",
       "type": "Microsoft.Resources/deployments",
       "properties": {
-
+        "mode": "incremental",
+        "templateLink": {
+          "uri": "http://github.com/yu000/MijinBaaS/blob/master/vmdeploy.json",
+          "contentVersion": "1.0.0.0"
+        },
+        "parameters": {
+          "location": { "value": "[variables('location0'))]" }
+        },
       },
       "copy": {
         "name"  : "mijin_deploy_copy",
