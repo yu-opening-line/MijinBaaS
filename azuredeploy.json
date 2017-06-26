@@ -43,15 +43,6 @@
         "parameters": {
           "location": {
               "value": "[variables(concat('location', copyIndex()))]"
-          },
-          "mijin_vm_prefix": {
-              "value": "[parameters('mijin_vm_prefix')]"
-          },
-          "mijin_vm_number": {
-              "value": "[copyIndex()]"
-          },
-          "add_itional_local_IPs": {
-              "value": "[parameters('add_itional_local_IPs')]"
           }
         },
       },
