@@ -9,7 +9,7 @@
           "type": "String"
       },
       "mijin_vm_number": {
-          "type": "String"
+          "type": "Int"
       },
       "add_itional_local_IPs": {
           "type": "String"
