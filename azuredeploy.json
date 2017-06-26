@@ -1,47 +1,44 @@
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "2nd_location": {
-        "defaultValue": "Japan East",
-        "type": "String"
-    },
-    "3rd_location": {
-        "defaultValue": "West US",
-        "type": "String"
-    },
-    "4th_location": {
-        "defaultValue": "West Europe",
-        "type": "String"
-    },
-    "mijin_vm_prefix": {
-        "defaultValue": "",
-        "type": "String"
-    },
-    "add_itional_local_IPs": {
-        "defaultValue": "",
-        "type": "String"
-    }
-  },
-  "variables": {
-  },
-  "resources": [
-    {
-      "apiVersion": "2017-05-10",
-      "name": "[concat('mijin_vm_deploy', copyIndex())]",
-      "type": "Microsoft.Resources/deployments",
-      "properties": {
-        },
-        "parameters": {
-          "location": {
-            "value": "East US"
-          }
-        },
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+      "2nd_location": {
+          "defaultValue": "Japan East",
+          "type": "String"
       },
-      "copy": {
-        "name"  : "mijin_deploy_copy",
-        "count" : 4
+      "3rd_location": {
+          "defaultValue": "West US",
+          "type": "String"
+      },
+      "4th_location": {
+          "defaultValue": "West Europe",
+          "type": "String"
+      },      
+      "mijin_vm_prefix": {
+          "defaultValue": "",
+          "type": "String"
+      },
+      "mijin_vm_number": {
+          "defaultValue": "1",
+          "type": "String"
+      },
+      "add_itional_local_IPs": {
+          "defaultValue": "",
+          "type": "String"
       }
-    }
-  ]
+    },
+    "variables": {
+      "virtualMachines_name": "[concat(parameters('mijin_vm_prefix'),'-mijin-vm', parameters('mijin_vm_number'))]",
+      "networkInterfaces_name": "[concat(variables('virtualMachines_name'), '-netifs')]",
+      "networkSecurityGroups_nsg_name": "[concat(variables('virtualMachines_name'), '-nsg')]",
+      "publicIPAddresses_ip_name": "[concat(variables('virtualMachines_name'), '-ip')]",
+      "virtualNetworks_vnet_name": "[concat(variables('virtualMachines_name'), '-vnet')]",
+      "storageAccounts_diag_name": "[concat(parameters('mijin_vm_prefix'),'mijinvm', parameters('mijin_vm_number'), 'diag')]",
+      "storageAccounts_disks_name": "[concat(parameters('mijin_vm_prefix'),'mijinvm', parameters('mijin_vm_number'), 'disks')]"
+    },
+    "resources": [
+        {
+
+        }
+    ]
 }
