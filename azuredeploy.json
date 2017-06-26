@@ -38,7 +38,7 @@
       "properties": {
         "mode": "incremental",
         "templateLink": {
-          "uri": "http:///.json",
+          "uri": "https://github.com/yu000/MijinBaaS/blob/master/vmdeploy.json",
           "contentVersion": "1.0.0.0"
         },
         "parameters": {
