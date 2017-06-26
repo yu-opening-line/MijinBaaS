@@ -13,7 +13,7 @@
       "4th_location": {
           "defaultValue": "West Europe",
           "type": "String"
-      },      
+      },
       "mijin_vm_prefix": {
           "defaultValue": "",
           "type": "String"
@@ -28,17 +28,34 @@
       }
     },
     "variables": {
-      "virtualMachines_name": "[concat(parameters('mijin_vm_prefix'),'-mijin-vm', parameters('mijin_vm_number'))]",
-      "networkInterfaces_name": "[concat(variables('virtualMachines_name'), '-netifs')]",
-      "networkSecurityGroups_nsg_name": "[concat(variables('virtualMachines_name'), '-nsg')]",
-      "publicIPAddresses_ip_name": "[concat(variables('virtualMachines_name'), '-ip')]",
-      "virtualNetworks_vnet_name": "[concat(variables('virtualMachines_name'), '-vnet')]",
-      "storageAccounts_diag_name": "[concat(parameters('mijin_vm_prefix'),'mijinvm', parameters('mijin_vm_number'), 'diag')]",
-      "storageAccounts_disks_name": "[concat(parameters('mijin_vm_prefix'),'mijinvm', parameters('mijin_vm_number'), 'disks')]"
+      "location0": "[resourceGroup().location]",
+      "location1": "[parameters('2nd_location')]",
+      "location2": "[parameters('3rd_location')]",
+      "location3": "[parameters('4th_location')]"
     },
     "resources": [
         {
-
+          "apiVersion": "2017-05-10",
+          "name": "[concat('mijin_vm_deploy1')]",
+          "type": "Microsoft.Resources/deployments",
+          "properties": {
+            "mode": "incremental",
+            "templateLink": {
+              "uri": "https://github.com/yu000/MijinBaaS/blob/master/vmdeploy.json",
+              "contentVersion": "1.0.0.0"
+            },
+            "parameters": {
+              "location": {
+                  "value": "[variables('location1')]"
+              },
+              "mijin_vm_prefix": {
+                  "value": "[parameters('mijin_vm_prefix')]"
+              },
+              "add_itional_local_IPs": {
+                  "value": "[parameters('add_itional_local_IPs')]"
+              }
+          }
         }
+      }
     ]
 }
