@@ -1,0 +1,100 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "2nd_location": {
+        "defaultValue": "Japan East",
+        "type": "String"
+    },
+    "3rd_location": {
+        "defaultValue": "West US",
+        "type": "String"
+    },
+    "4th_location": {
+        "defaultValue": "West Europe",
+        "type": "String"
+    },
+    "mijin_vm_prefix": {
+        "defaultValue": "",
+        "type": "String"
+    },
+    "add_itional_local_IPs": {
+        "defaultValue": "",
+        "type": "String"
+    }
+  },
+  "variables": {
+    "location0": "[resourceGroup().location]",
+    "location1": "[parameters('2nd_location')]",
+    "location2": "[parameters('3rd_location')]",
+    "location3": "[parameters('4th_location')]",
+    "main_virtualMachines_name": "[concat(parameters('mijin_vm_prefix'),'-mijin-vm0']"
+  },
+  "resources": [
+    {
+      "apiVersion": "2017-05-10",
+      "name": "[concat('mijin_vm_deploy', copyIndex()]",
+      "type": "Microsoft.Resources/deployments",
+      "properties": {
+        "mode": "incremental",
+        "templateLink": {
+          "uri": "http:///.json",
+          "contentVersion": "1.0.0.0"
+        },
+        "parameters": {
+          "location": {
+              "value": "[variables(concat('location', copyIndex()))]"
+          },
+          "mijin_vm_prefix": {
+              "value": "[parameters('mijin_vm_prefix')]"
+          },
+          "mijin_vm_number": {
+              "value": "[copyIndex()]"
+          },
+          "add_itional_local_IPs": {
+              "value": "[parameters('add_itional_local_IPs')]"
+          }
+        },
+        "copy": {
+          "name"  : "mijin_deploy_copy",
+          "count" : 4
+        }
+      }
+    }
+  ],
+  {
+      "comments": "リソース '/subscriptions//resourceGroups/cent-rg/providers/Microsoft.Compute/virtualMachines/centostest01/extensions/CustomScriptForLinux' 㝋ら一般化㝕れ㝾㝗㝟。",
+      "type": "Microsoft.Compute/virtualMachines/extensions",
+      "name": "[concat('mijin_script_deploy', copyIndex(), '/extension')]",
+      "apiVersion": "2016-03-30",
+      "location": "[variables('location0')]",
+      "properties": {
+          "publisher": "Microsoft.OSTCExtensions",
+          "type": "CustomScriptForLinux",
+          "typeHandlerVersion": "1.0",
+          "settings": {
+              "fileUris": [
+                  "https://hitachimijin3diag972.blob.core.windows.net/scripts/install_mijin.sh"
+              ],
+              "commandToExecute":
+                "[concat(
+                    'sh install_mijin.sh',
+                    ' ',
+                    [reference('mijin_vm_deploy0').outputs.,ip_0.value],
+                    ' ',
+                    [reference('mijin_vm_deploy1').outputs.,ip_1.value],
+                    ' ',
+                    [reference('mijin_vm_deploy2').outputs.,ip_2.value],
+                    ' ',
+                    [reference('mijin_vm_deploy3').outputs.,ip_3.value]
+                )]"
+          }
+      },
+      "copy": {
+        "name"  : "mijin_script_copy",
+        "count" : 4
+      },
+      "resources": [],
+      "dependsOn": []
+  }
+}
