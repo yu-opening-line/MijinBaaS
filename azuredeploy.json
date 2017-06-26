@@ -12,7 +12,7 @@
       "properties": {
         "mode": "incremental",
         "templateLink": {
-          "uri": "https://hitachimijin3diag972.blob.core.windows.net/scripts/vmdeploy.json",
+          "uri": "https://github.com/yu000/MijinBaaS/blob/master/vmdeploy.json",
           "contentVersion": "1.0.0.0"
         }
       }
