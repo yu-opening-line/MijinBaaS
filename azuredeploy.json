@@ -2,15 +2,15 @@
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-      "2nd_location": {
+      "snd_location": {
           "defaultValue": "Japan East",
           "type": "String"
       },
-      "3rd_location": {
+      "trd_location": {
           "defaultValue": "West US",
           "type": "String"
       },
-      "4th_location": {
+      "fth_location": {
           "defaultValue": "West Europe",
           "type": "String"
       },
