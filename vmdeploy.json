@@ -7,17 +7,11 @@
       }
     },
     "variables": {
-      "virtualMachines_name": "[concat(parameters('mijin_vm_prefix'),'-mijin-vm', parameters('mijin_vm_number'))]",
-      "networkInterfaces_name": "[concat(variables('virtualMachines_name'), '-netifs')]",
-      "networkSecurityGroups_nsg_name": "[concat(variables('virtualMachines_name'), '-nsg')]",
-      "publicIPAddresses_ip_name": "[concat(variables('virtualMachines_name'), '-ip')]",
-      "virtualNetworks_vnet_name": "[concat(variables('virtualMachines_name'), '-vnet')]",
-      "storageAccounts_diag_name": "[concat(parameters('mijin_vm_prefix'),'mijinvm', parameters('mijin_vm_number'), 'diag')]",
-      "storageAccounts_disks_name": "[concat(parameters('mijin_vm_prefix'),'mijinvm', parameters('mijin_vm_number'), 'disks')]",
-      "publicIPAddresses_ip_id": "['ip_', parameters('mijin_vm_number')]"
     },
     "resources": [
+      {
 
-    ],
+      }
+    ]
 
 }
