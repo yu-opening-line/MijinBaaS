@@ -31,7 +31,7 @@
   },
   "resources": [
     {
-      "name": "[concat('mijindeploy')]",
+      "name": "[concat('mijindeploy', copyIndex())]",
       "type": "Microsoft.Resources/deployments",
       "apiVersion": "2017-05-10",
       "dependsOn": [],
@@ -43,15 +43,19 @@
         },
         "parameters": {
           "location": {
-            "value": "[variables('location0')]"
+            "value": "[variables(concat('location', copyIndex()))]"
           },
           "mijin_vm_prefix": {
               "value": "[parameters('mijin_vm_prefix')]"
           },
           "mijin_vm_number": {
-              "value": "0"
+              "value": "[copyIndex()]"
           }
         }
+      },
+      "copy": {
+        "name"  : "mijin_deploy_copy",
+        "count" : 4
       }
     }
   ],
