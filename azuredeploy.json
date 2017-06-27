@@ -19,13 +19,16 @@
         },
         "parameters": {
           "location": {
-            "value": "East US"
+            "value": "East US",
+            "type": "String"
           },
           "mijin_vm_prefix": {
-            "value": "t"
+            "value": "t",
+            "type": "String"
           },
           "mijin_vm_number": {
-            "value": "1"
+            "value": "1",
+            "type": "String"
           }
         }
       }
