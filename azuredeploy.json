@@ -21,12 +21,21 @@
         "parameters": {
           "location": {
             "value": "East US"
+          },
+          "mijin_vm_prefix": {
+              "value": "t"
+          },
+          "mijin_vm_number": {
+              "value": "1"
           }
         }
       }
     }
   ],
   "outputs": {
-
+    "result": {
+      "type": "string",
+      "value": "[reference('linkedTemplate').outputs.result.value]"
+    }
   }
 }
