@@ -17,13 +17,13 @@
           "uri": "https://github.com/yu000/MijinBaaS/blob/master/vmdeploy.json",
           "contentVersion": "1.0.0.0"
         },
-        "parameters": {
-          "mijin_vm_prefix": {
-            "value": "t"
-          },
-          "mijin_vm_number": {
-            "defaultValue": "1"
-          }
+      },
+      "parameters": {
+        "mijin_vm_prefix": {
+          "value": "t"
+        },
+        "mijin_vm_number": {
+          "value": "1"
         }
       }
     }
