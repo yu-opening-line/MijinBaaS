@@ -19,7 +19,7 @@
         "type": "String"
     },
     "add_itional_local_IPs": {
-        "defaultValue": "",
+        "defaultValue": "182.236.21.55",
         "type": "String"
     }
   },
