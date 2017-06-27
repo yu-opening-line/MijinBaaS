@@ -73,16 +73,15 @@
             "https://hitachimijin3diag972.blob.core.windows.net/scripts/install_mijin.sh"
           ],
           "commandToExecute":
-            "[concat(
-              'sh install_mijin.sh',
+            "[concat('sh install_mijin.sh',
               ' ',
-              [reference('mijindeploy0').outputs.ret_publicIPAddress.value],
+              reference('mijindeploy0').outputs.ret_publicIPAddress.value,
               ' ',
-              [reference('mijindeploy1').outputs.ret_publicIPAddress.value],
+              reference('mijindeploy1').outputs.ret_publicIPAddress.value,
               ' ',
-              [reference('mijindeploy2').outputs.ret_publicIPAddress.value],
+              reference('mijindeploy2').outputs.ret_publicIPAddress.value,
               ' ',
-              [reference('mijindeploy3').outputs.ret_publicIPAddress.value]
+              reference('mijindeploy3').outputs.ret_publicIPAddress.value
             )]"
         }
       }
