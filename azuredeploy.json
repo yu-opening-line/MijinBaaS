@@ -10,7 +10,7 @@
     {
       "name": "netdeploy",
       "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2015-06-15",
+      "apiVersion": "2017-05-10",
       "dependsOn": [ ],
       "properties": {
         "mode": "Incremental",
