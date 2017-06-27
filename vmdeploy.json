@@ -3,7 +3,6 @@
   "contentVersion": "1.0.0.0",
   "parameters": {
     "region": {
-      "defaultValue": "East US",
       "type": "String"
     },
     "mijin_vm_prefix": {
