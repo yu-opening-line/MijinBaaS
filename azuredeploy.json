@@ -19,7 +19,7 @@
         },
         "parameters": {
           "mijin_vm_prefix": {
-            "defaultValue": "t"
+            "value": "t"
           },
           "mijin_vm_number": {
             "defaultValue": "1"
