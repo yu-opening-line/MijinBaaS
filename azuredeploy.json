@@ -14,18 +14,12 @@
       "properties": {
         "mode": "incremental",
         "templateLink": {
-          "uri": "https://github.com/yu000/MijinBaaS/blob/master/vmdeploy.json#",
+          "uri": "https://github.com/yu000/MijinBaaS/blob/master/vmdeploy.json",
           "contentVersion": "1.0.0.0"
         },
         "parameters": {
           "region": {
             "value": "west us"
-          },
-          "mijin_vm_prefix": {
-            "value": "t"
-          },
-          "mijin_vm_number": {
-            "value": "a"
           }
         }
       }

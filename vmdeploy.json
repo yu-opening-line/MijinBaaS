@@ -4,12 +4,6 @@
   "parameters": {
     "region": {
       "type": "String"
-    },
-    "mijin_vm_prefix": {
-      "type": "String"
-    },
-    "mijin_vm_number": {
-      "type": "String"
     }
   },
   "variables": {
