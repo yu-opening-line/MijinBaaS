@@ -8,18 +8,19 @@
   },
   "resources": [
     {
-      "apiVersion": "2017-05-10",
-      "name": "linkedTemplate",
+      "name": "netdeploy",
       "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2015-06-15",
+      "dependsOn": [ ],
       "properties": {
-        "mode": "incremental",
+        "mode": "Incremental",
         "templateLink": {
           "uri": "https://github.com/yu000/MijinBaaS/blob/master/vmdeploy.json",
           "contentVersion": "1.0.0.0"
         },
         "parameters": {
-          "region": {
-            "value": "west us"
+          "location": {
+            "value": "East US"
           }
         }
       }
