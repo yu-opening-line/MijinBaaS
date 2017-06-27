@@ -61,7 +61,7 @@
     {
       "comments": "リソース '/subscriptions//resourceGroups/cent-rg/providers/Microsoft.Compute/virtualMachines/centostest01/extensions/CustomScriptForLinux' 㝋ら一般化㝕れ㝾㝗㝟。",
       "type": "Microsoft.Compute/virtualMachines/extensions",
-      "name": "[concat('mijin_script_deploy', copyIndex(), '/extension')]",
+      "name": "[concat('mijin_script_deploy', '0', '/extension')]",
       "apiVersion": "2016-03-30",
       "location": "[variables('location0')]",
       "properties": {
@@ -76,13 +76,13 @@
             "[concat(
               'sh install_mijin.sh',
               ' ',
-              [reference('mijin_vm_deploy0').outputs.,ip_0.value],
+              [reference('mijindeploy0').outputs.ret_publicIPAddress.value],
               ' ',
-              [reference('mijin_vm_deploy1').outputs.,ip_1.value],
+              [reference('mijindeploy1').outputs.ret_publicIPAddress.value],
               ' ',
-              [reference('mijin_vm_deploy2').outputs.,ip_2.value],
+              [reference('mijindeploy2').outputs.ret_publicIPAddress.value],
               ' ',
-              [reference('mijin_vm_deploy3').outputs.,ip_3.value]
+              [reference('mijindeploy3').outputs.ret_publicIPAddress.value]
             )]"
         }
       }
