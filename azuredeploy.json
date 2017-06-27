@@ -18,17 +18,11 @@
           "contentVersion": "1.0.0.0"
         },
         "parameters": {
-          "location": {
-            "value": "East US",
-            "type": "String"
-          },
           "mijin_vm_prefix": {
-            "value": "t",
-            "type": "String"
+            "value": "t"
           },
           "mijin_vm_number": {
-            "value": "1",
-            "type": "String"
+            "value": "1"
           }
         }
       }
