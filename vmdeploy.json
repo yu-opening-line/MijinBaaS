@@ -5,12 +5,6 @@
     "region": {
       "defaultValue": "East US",
       "type": "String"
-    },
-    "mijin_vm_prefix": {
-      "type": "String"
-    },
-    "mijin_vm_number": {
-      "type": "String"
     }
   },
   "variables": {
