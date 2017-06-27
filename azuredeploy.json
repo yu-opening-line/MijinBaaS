@@ -2,16 +2,39 @@
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
-    "containerSasToken": {
-       "type": "string"
+    "2nd_location": {
+        "defaultValue": "Japan East",
+        "type": "String"
+    },
+    "3rd_location": {
+        "defaultValue": "West US",
+        "type": "String"
+    },
+    "4th_location": {
+        "defaultValue": "West Europe",
+        "type": "String"
+    },
+    "mijin_vm_prefix": {
+        "defaultValue": "",
+        "type": "String"
+    },
+    "add_itional_local_IPs": {
+        "defaultValue": "",
+        "type": "String"
     }
+  },
+  "variables": {
+    "location0": "[resourceGroup().location]",
+    "location1": "[parameters('2nd_location')]",
+    "location2": "[parameters('3rd_location')]",
+    "location3": "[parameters('4th_location')]"
   },
   "resources": [
     {
-      "name": "netdeploy",
+      "name": "[concat('mijindeploy')]",
       "type": "Microsoft.Resources/deployments",
       "apiVersion": "2017-05-10",
-      "dependsOn": [ ],
+      "dependsOn": [],
       "properties": {
         "mode": "Incremental",
         "templateLink": {
@@ -20,13 +43,13 @@
         },
         "parameters": {
           "location": {
-            "value": "East US"
+            "value": "[variables('location0')]"
           },
           "mijin_vm_prefix": {
-              "value": "t"
+              "value": "[parameters('mijin_vm_prefix')]"
           },
           "mijin_vm_number": {
-              "value": "1"
+              "value": "0"
           }
         }
       }
@@ -35,7 +58,7 @@
   "outputs": {
     "result": {
       "type": "string",
-      "value": "[reference('netdeploy').outputs.result.value]"
+      "value": "[reference('mijindeploy').outputs.result.value]"
     }
   }
 }
