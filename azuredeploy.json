@@ -35,7 +35,7 @@
   "outputs": {
     "result": {
       "type": "string",
-      "value": "[reference('linkedTemplate').outputs.result.value]"
+      "value": "[reference('netdeploy').outputs.result.value]"
     }
   }
 }
