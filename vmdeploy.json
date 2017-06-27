@@ -19,9 +19,6 @@
 
   ],
   "outputs": {
-    "result": {
-        "value": "[concat(parameters('region'),'/', parameters('mijin_vm_prefix'), '/', parameters('mijin_vm_number'))]",
-        "type" : "string"
-    }
+
   }
 }

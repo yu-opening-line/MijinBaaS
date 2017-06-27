@@ -25,16 +25,13 @@
             "value": "t"
           },
           "mijin_vm_number": {
-            "value": "1"
+            "value": "a"
           }
         }
       }
     }
   ],
   "outputs": {
-    "result": {
-      "type": "string",
-      "value": "[reference('linkedTemplate').outputs.result.value]"
-    }
+
   }
 }
