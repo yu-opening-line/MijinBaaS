@@ -24,7 +24,7 @@
           "mijin_vm_prefix": {
             "value": "t"
           },
-          "location": {
+          "mijin_vm_number": {
             "value": "1"
           }
         }
