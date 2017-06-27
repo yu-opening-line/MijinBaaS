@@ -2,7 +2,9 @@
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
-    "containerSasToken": { "type": "string" }
+    "containerSasToken": {
+       "type": "string"
+    }
   },
   "resources": [
     {
@@ -14,6 +16,17 @@
         "templateLink": {
           "uri": "https://github.com/yu000/MijinBaaS/blob/master/vmdeploy.json",
           "contentVersion": "1.0.0.0"
+        },
+        "parameters": {
+          "location": {
+            "value": "East US"
+          },
+          "mijin_vm_prefix": {
+            "value": "t"
+          },
+          "location": {
+            "value": "1"
+          }
         }
       }
     }
