@@ -26,7 +26,6 @@
   "variables": {
     "MIJIN_INSTALL_SH_URL": "https://hitachimijin3diag972.blob.core.windows.net/scripts/install_mijin.sh",
     "VM_DEPLOY_JSON_URL"  : "https://hitachimijin3diag972.blob.core.windows.net/scripts/vmdeploy.json",
-
     "location0": "[resourceGroup().location]",
     "location1": "[parameters('2nd_location')]",
     "location2": "[parameters('3rd_location')]",
@@ -73,9 +72,7 @@
         "type": "CustomScriptForLinux",
         "typeHandlerVersion": "1.0",
         "settings": {
-          "fileUris": "[
-            variables('MIJIN_INSTALL_SH_URL')
-          ]",
+          "fileUris": "[variables('MIJIN_INSTALL_SH_URL')]",
           "commandToExecute":
             "[concat('sh install_mijin.sh',
               ' ',
