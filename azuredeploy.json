@@ -16,19 +16,19 @@
     },
     "1st_server_admin_password": {
         "defaultValue": "PasswdMijin1",
-        "type": "String"
+        "type": "secureString"
     },
     "2nd_server_admin_password": {
         "defaultValue": "PasswdMijin2",
-        "type": "String"
+        "type": "secureString"
     },
     "3rd_server_admin_password": {
         "defaultValue": "PasswdMijin3",
-        "type": "String"
+        "type": "secureString"
     },
     "4th_server_admin_password": {
         "defaultValue": "PasswdMijin4",
-        "type": "String"
+        "type": "secureString"
     },
     "mijin_vm_prefix": {
         "defaultValue": "",
