@@ -47,7 +47,7 @@
     "location1": "[parameters('2nd_location')]",
     "location2": "[parameters('3rd_location')]",
     "location3": "[parameters('4th_location')]",
-    "adminPassword0": "[arameters('1st_server_admin_password')]",
+    "adminPassword0": "[parameters('1st_server_admin_password')]",
     "adminPassword1": "[parameters('2nd_server_admin_password')]",
     "adminPassword2": "[parameters('3rd_server_admin_password')]",
     "adminPassword3": "[parameters('4th_server_admin_password')]",
