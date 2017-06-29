@@ -4,7 +4,7 @@
   "parameters": {
     "2nd_location": {
         "type": "array",
-        "allowedValues": ["aaa", "bbb", "ccc"]
+        "allowedValues": "[providers('Microsoft.Web', 'sites')]"
     },
     "3rd_location": {
         "defaultValue": "West US",
