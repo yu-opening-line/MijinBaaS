@@ -25,9 +25,7 @@
   },
   "variables": {
     "MIJIN_INSTALL_SH_URL": "https://hitachimijin3diag972.blob.core.windows.net/scripts/install_mijin.sh",
-    "VM_DEPLOY_JSON_URL"  : "https://hitachimijin3diag972.blob.core.windows.net/scripts/vmdeploy.json"
-
-
+    "VM_DEPLOY_JSON_URL"  : "https://hitachimijin3diag972.blob.core.windows.net/scripts/vmdeploy.json",
 
     "location0": "[resourceGroup().location]",
     "location1": "[parameters('2nd_location')]",
