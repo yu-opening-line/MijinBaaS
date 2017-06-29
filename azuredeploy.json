@@ -69,7 +69,7 @@
           "location": {
             "value": "[variables(concat('location', copyIndex()))]"
           },
-          "adminPassword"
+          "adminPassword": {
             "value": "[variables(concat('adminPassword', copyIndex()))]"
           },
           "mijin_vm_prefix": {
