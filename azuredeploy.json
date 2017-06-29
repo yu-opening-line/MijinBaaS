@@ -3,9 +3,8 @@
   "contentVersion": "1.0.0.0",
   "parameters": {
     "2nd_location": {
-        "defaultValue": "Japan East",
-        "type": "object",
-        "allowedValues": "[providers('Microsoft.Web', 'sites')]",
+        "type": "array",
+        "value": "[providers('Microsoft.Web', 'sites')]",
     },
     "3rd_location": {
         "defaultValue": "West US",
