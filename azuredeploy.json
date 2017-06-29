@@ -14,6 +14,22 @@
         "defaultValue": "West Europe",
         "type": "String"
     },
+    "1st_server_admin_password": {
+        "defaultValue": "PasswdMijin1",
+        "type": "String"
+    },
+    "2nd_server_admin_password": {
+        "defaultValue": "PasswdMijin2",
+        "type": "String"
+    },
+    "3rd_server_admin_password": {
+        "defaultValue": "PasswdMijin3",
+        "type": "String"
+    },
+    "4th_server_admin_password": {
+        "defaultValue": "PasswdMijin4",
+        "type": "String"
+    },
     "mijin_vm_prefix": {
         "defaultValue": "",
         "type": "String"
@@ -31,6 +47,10 @@
     "location1": "[parameters('2nd_location')]",
     "location2": "[parameters('3rd_location')]",
     "location3": "[parameters('4th_location')]",
+    "adminPassword0": "[arameters('1st_server_admin_password')]",
+    "adminPassword1": "[parameters('2nd_server_admin_password')]",
+    "adminPassword2": "[parameters('3rd_server_admin_password')]",
+    "adminPassword3": "[parameters('4th_server_admin_password')]",
     "base_vm_name": "[concat(parameters('mijin_vm_prefix'),'-mijin-vm')]"
   },
   "resources": [
@@ -48,6 +68,9 @@
         "parameters": {
           "location": {
             "value": "[variables(concat('location', copyIndex()))]"
+          },
+          "adminPassword"
+            "value": "[variables(concat('adminPassword', copyIndex()))]"
           },
           "mijin_vm_prefix": {
               "value": "[parameters('mijin_vm_prefix')]"
