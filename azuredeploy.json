@@ -4,7 +4,7 @@
   "parameters": {
     "2nd_location": {
         "type": "array",
-        "value": "[array({'aaa', 'bbb', 'ccc'})]"
+        "value": "[array('aaa', 'bbb', 'ccc')]"
     },
     "3rd_location": {
         "defaultValue": "West US",
