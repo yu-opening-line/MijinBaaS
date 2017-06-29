@@ -3,8 +3,8 @@
   "contentVersion": "1.0.0.0",
   "parameters": {
     "2nd_location": {
-        "type": "array",
-        "allowedValues": "[providers('Microsoft.Web', 'sites')]"
+        "type": "object",
+        "allowedValues": "[providers('Microsoft.Storage', 'storageAccounts')]"
     },
     "3rd_location": {
         "defaultValue": "West US",
