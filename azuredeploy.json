@@ -24,6 +24,11 @@
     }
   },
   "variables": {
+    "MIJIN_INSTALL_SH_URL": "https://hitachimijin3diag972.blob.core.windows.net/scripts/install_mijin.sh",
+    "VM_DEPLOY_JSON_URL"  : "https://hitachimijin3diag972.blob.core.windows.net/scripts/vmdeploy.json"
+
+
+
     "location0": "[resourceGroup().location]",
     "location1": "[parameters('2nd_location')]",
     "location2": "[parameters('3rd_location')]",
@@ -39,7 +44,7 @@
       "properties": {
         "mode": "Incremental",
         "templateLink": {
-          "uri": "https://hitachimijin3diag972.blob.core.windows.net/scripts/vmdeploy.json",
+          "uri": "[variables('VM_DEPLOY_JSON_URL')]",
           "contentVersion": "1.0.0.0"
         },
         "parameters": {
@@ -70,9 +75,9 @@
         "type": "CustomScriptForLinux",
         "typeHandlerVersion": "1.0",
         "settings": {
-          "fileUris": [
-            "https://hitachimijin3diag972.blob.core.windows.net/scripts/install_mijin.sh"
-          ],
+          "fileUris": "[
+            variables('MIJIN_INSTALL_SH_URL')
+          ]",
           "commandToExecute":
             "[concat('sh install_mijin.sh',
               ' ',
