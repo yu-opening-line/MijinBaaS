@@ -130,7 +130,7 @@
     },
     "mijin_vm_prefix": {
         "type": "String",
-        "minLength": 1,
+        "minValue": 1,
         "metadata": {
           "description": "Unique Server Name. "
         }
