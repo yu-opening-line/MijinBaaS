@@ -106,26 +106,34 @@
     },
     "1st_server_admin_password": {
         "type": "secureString",
+        "minLength": 12,
+        "maxLength": 72,
         "metadata": {
-          "description": "Password for the 1st Mijin Server."
+          "description": "Password for the 1st Mijin Server. Passwords must be between 12 and 72 characters and have 3 of the following: 1 lower case, 1 upper case, 1 number, and 1 special character."
         }
     },
     "2nd_server_admin_password": {
         "type": "secureString",
+        "minLength": 12,
+        "maxLength": 72,
         "metadata": {
-          "description": "Password for the 2nd Mijin Server."
+          "description": "Password for the 2nd Mijin Server. Passwords must be between 12 and 72 characters and have 3 of the following: 1 lower case, 1 upper case, 1 number, and 1 special character."
         }
     },
     "3rd_server_admin_password": {
         "type": "secureString",
+        "minLength": 12,
+        "maxLength": 72,
         "metadata": {
-          "description": "Password for the 3rd Mijin Server."
+          "description": "Password for the 3rd Mijin Server. Passwords must be between 12 and 72 characters and have 3 of the following: 1 lower case, 1 upper case, 1 number, and 1 special character."
         }
     },
     "4th_server_admin_password": {
+        "minLength": 12,
+        "maxLength": 72,
         "type": "secureString",
         "metadata": {
-          "description": "Password for the 4th Mijin Server."
+          "description": "Password for the 4th Mijin Server. Passwords must be between 12 and 72 characters and have 3 of the following: 1 lower case, 1 upper case, 1 number, and 1 special character."
         }
     },
     "mijin_vm_prefix": {
@@ -137,7 +145,10 @@
     },
     "additional_local_IPs": {
         "defaultValue": "182.236.21.55",
-        "type": "String"
+        "type": "String",
+        "metadata": {
+          "description": "Set the Local IP Address to issue the Mijin Account. For more than one, enter with pipe break. (XX.XX.XX.XX | XX.XX.XX.XX)"
+        }
     }
   },
   "variables": {
