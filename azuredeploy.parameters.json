@@ -2,16 +2,5 @@
   "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
-    "2nd_location": {
-      "value": "Central US"
-    },
-    "3rd_location": {
-      "value": "West Europe"
-    },
-    "4th_location": {
-      "value": "Australia East"
-    },
-    "mijin_vm_prefix": {
-      "value": "m"
-    },
+  }
 }

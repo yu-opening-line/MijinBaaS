@@ -106,14 +106,12 @@
     },
     "1st_server_admin_password": {
         "type": "secureString",
-        "minLength": 12,
         "metadata": {
           "description": "Password for the 1st Mijin Server."
         }
     },
     "2nd_server_admin_password": {
         "type": "secureString",
-        "minLength": 12,
         "metadata": {
           "description": "Password for the 2nd Mijin Server."
         }
@@ -126,7 +124,6 @@
     },
     "4th_server_admin_password": {
         "type": "secureString",
-        "minLength": 12,
         "metadata": {
           "description": "Password for the 4th Mijin Server."
         }
