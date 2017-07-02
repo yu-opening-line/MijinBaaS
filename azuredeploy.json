@@ -104,7 +104,7 @@
         "description": "Select 4th Mijin Server Location."
       }
     },
-    "adminPassword": {
+    "1st_server_admin_password": {
         "type": "secureString",
         "metadata": {
           "description": "Password for the 1st Mijin Server."
