@@ -3,7 +3,7 @@
   "contentVersion": "1.0.0.0",
   "parameters": {
     "2nd_location": {
-        "type": "array",
+        "type": "string",
         "allowedValues": [
           "West India",
           "Central India",
@@ -37,7 +37,7 @@
         }
     },
     "3rd_location": {
-      "type": "array",
+      "type": "string",
       "allowedValues": [
         "West India",
         "Central India",
@@ -71,7 +71,7 @@
       }
     },
     "4th_location": {
-      "type": "array",
+      "type": "string",
       "allowedValues": [
         "West India",
         "Central India",
@@ -107,6 +107,7 @@
     "1st_server_admin_password": {
         "defaultValue": "PasswdMijin1",
         "type": "secureString",
+        "minLength": 12,
         "metadata": {
           "description": "Password for the 1st Mijin Server."
         }
@@ -114,6 +115,7 @@
     "2nd_server_admin_password": {
         "defaultValue": "PasswdMijin2",
         "type": "secureString",
+        "minLength": 12,
         "metadata": {
           "description": "Password for the 2nd Mijin Server."
         }
@@ -128,12 +130,14 @@
     "4th_server_admin_password": {
         "defaultValue": "PasswdMijin4",
         "type": "secureString",
+        "minLength": 12,
         "metadata": {
           "description": "Password for the 4th Mijin Server."
         }
     },
     "mijin_vm_prefix": {
         "type": "String",
+        "minLength": 1,
         "metadata": {
           "description": "Unique Server Name. "
         }
