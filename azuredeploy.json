@@ -106,8 +106,6 @@
     },
     "adminPassword": {
         "type": "secureString",
-        "minLength": 12,
-        "maxLength": 72,
         "metadata": {
           "description": "Password for the 1st Mijin Server."
         }
