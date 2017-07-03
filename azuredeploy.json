@@ -133,7 +133,7 @@
   "variables": {
     "VM_DEPLOY_JSON_URL"  : "https://raw.githubusercontent.com/yu000/MijinBaaS/master/vmdeploy.json",
     "MIJIN_INSTALL_SH_URL": "https://raw.githubusercontent.com/yu000/MijinBaaS/master/scripts/install_mijin.sh",
-    "MIJIN_VHD_URL"       : "https://mmijinvm0disks.blob.core.windows.net/vhds/m-mijin-vm020170310154041.vhd",
+    "MIJIN_VHD_URL"       : "https://mmijinvm0disks.blob.core.windows.net/system/Microsoft.Compute/Images/mijinvm/m-osDisk.dbd20053-74aa-40da-a191-56b121ddbf8e.vhd",
     "location0": "[resourceGroup().location]",
     "location1": "[parameters('2nd_location')]",
     "location2": "[parameters('3rd_location')]",

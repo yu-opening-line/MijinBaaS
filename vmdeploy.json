@@ -54,9 +54,9 @@
                 "dataDisks": []
             },
             "osProfile": {
-                "computerName" : "m-mijin-vm0",
+                "computerName" : "[variables('virtualMachines_name')]",
                 "adminUsername": "mijin",
-                "adminPassword": "PasswdMijin1",
+                "adminPassword": "[parameters('adminPassword')]",
                 "secrets": []
             },
             "networkProfile": {
