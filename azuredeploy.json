@@ -3,6 +3,7 @@
   "contentVersion": "1.0.0.0",
   "parameters": {
     "2nd_location": {
+        "value": "West US",
         "type": "string",
         "allowedValues": [
           "West India",
@@ -37,6 +38,7 @@
         }
     },
     "3rd_location": {
+      "value": "West Europe",
       "type": "string",
       "allowedValues": [
         "West India",
@@ -71,6 +73,7 @@
       }
     },
     "4th_location": {
+      "value": "Australia East",
       "type": "string",
       "allowedValues": [
         "West India",
@@ -104,39 +107,16 @@
         "description": "Select 4th Mijin Server Location."
       }
     },
-    "1st_server_admin_password": {
+    "admin_password": {
         "type": "secureString",
         "minLength": 12,
         "maxLength": 72,
         "metadata": {
-          "description": "Password for the 1st Mijin Server. Passwords must be between 12 and 72 characters and have 3 of the following: 1 lower case, 1 upper case, 1 number, and 1 special character."
-        }
-    },
-    "2nd_server_admin_password": {
-        "type": "secureString",
-        "minLength": 12,
-        "maxLength": 72,
-        "metadata": {
-          "description": "Password for the 2nd Mijin Server. Passwords must be between 12 and 72 characters and have 3 of the following: 1 lower case, 1 upper case, 1 number, and 1 special character."
-        }
-    },
-    "3rd_server_admin_password": {
-        "type": "secureString",
-        "minLength": 12,
-        "maxLength": 72,
-        "metadata": {
-          "description": "Password for the 3rd Mijin Server. Passwords must be between 12 and 72 characters and have 3 of the following: 1 lower case, 1 upper case, 1 number, and 1 special character."
-        }
-    },
-    "4th_server_admin_password": {
-        "minLength": 12,
-        "maxLength": 72,
-        "type": "secureString",
-        "metadata": {
-          "description": "Password for the 4th Mijin Server. Passwords must be between 12 and 72 characters and have 3 of the following: 1 lower case, 1 upper case, 1 number, and 1 special character."
+          "description": "Password for the Mijin Server. Passwords must be between 12 and 72 characters and have 3 of the following: 1 lower case, 1 upper case, 1 number, and 1 special character."
         }
     },
     "mijin_vm_prefix": {
+        "value": "m",
         "type": "String",
         "minLength": 1,
         "metadata": {
@@ -144,6 +124,7 @@
         }
     },
     "additional_local_IPs": {
+        "minLength": 0,
         "type": "String",
         "metadata": {
           "description": "Set the Local IP Address to issue the Mijin Account. For more than one, enter with pipe break. (XX.XX.XX.XX | XX.XX.XX.XX)"
@@ -153,15 +134,11 @@
   "variables": {
     "VM_DEPLOY_JSON_URL"  : "https://raw.githubusercontent.com/yu000/MijinBaaS/master/vmdeploy.json",
     "MIJIN_INSTALL_SH_URL": "https://raw.githubusercontent.com/yu000/MijinBaaS/master/scripts/install_mijin.sh",
-    "MIJIN_INSTALLER_URL" : "https://raw.githubusercontent.com/yu000/MijinBaaS/master/scripts/m.tar.gz",
+    "MIJIN_VHD_URL"       : "https://mmijinvm0disks.blob.core.windows.net/vhds/m-mijin-vm020170310154041.vhd",
     "location0": "[resourceGroup().location]",
     "location1": "[parameters('2nd_location')]",
     "location2": "[parameters('3rd_location')]",
     "location3": "[parameters('4th_location')]",
-    "adminPassword0": "[parameters('1st_server_admin_password')]",
-    "adminPassword1": "[parameters('2nd_server_admin_password')]",
-    "adminPassword2": "[parameters('3rd_server_admin_password')]",
-    "adminPassword3": "[parameters('4th_server_admin_password')]",
     "base_vm_name": "[concat(parameters('mijin_vm_prefix'),'-mijin-vm')]"
   },
   "resources": [
@@ -181,19 +158,57 @@
             "value": "[variables(concat('location', copyIndex()))]"
           },
           "adminPassword": {
-            "value": "[variables(concat('adminPassword', copyIndex()))]"
+            "value": "[parameters('admin_password')]"
           },
           "mijin_vm_prefix": {
+            "minLength": 1,
             "value": "[parameters('mijin_vm_prefix')]"
           },
           "mijin_vm_number": {
               "value": "[copyIndex()]"
+          },
+          "mijin_vhd_url": {
+            "value": "[variables('MIJIN_VHD_URL')]"
           }
         }
       },
       "copy": {
         "name"  : "vm_deploy_copy",
-        "count" : 1
+        "count" : 4
+      }
+    },
+    {
+      "comments": "リソース '/subscriptions//resourceGroups/cent-rg/providers/Microsoft.Compute/virtualMachines/centostest01/extensions/CustomScriptForLinux' 㝋ら一般化㝕れ㝾㝗㝟。",
+      "type": "Microsoft.Compute/virtualMachines/extensions",
+      "name": "[concat(variables('base_vm_name'), copyIndex(), '/extension')]",
+      "apiVersion": "2016-03-30",
+      "location": "[variables(concat('location', copyIndex()))]",
+      "properties": {
+        "publisher": "Microsoft.OSTCExtensions",
+        "type": "CustomScriptForLinux",
+        "typeHandlerVersion": "1.0",
+        "settings": {
+          "fileUris": [
+            "[variables('MIJIN_INSTALL_SH_URL')]"
+          ],
+          "commandToExecute":
+            "[concat('sh install_mijin.sh',
+              ' ',
+              parameters('additional_local_IPs'),
+              ' ',
+              reference('mijindeploy0').outputs.ret_publicIPAddress.value,
+              ' ',
+              reference('mijindeploy1').outputs.ret_publicIPAddress.value,
+              ' ',
+              reference('mijindeploy2').outputs.ret_publicIPAddress.value,
+              ' ',
+              reference('mijindeploy3').outputs.ret_publicIPAddress.value
+            )]"
+        }
+      },
+      "copy": {
+        "name"  : "mijin_install_copy",
+        "count" : 4
       }
     }
   ],
