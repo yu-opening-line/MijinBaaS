@@ -53,12 +53,6 @@
                 },
                 "dataDisks": []
             },
-            "osProfile": {
-                "computerName" : "[variables('virtualMachines_name')]",
-                "adminUsername": "mijin",
-                "adminPassword": "[parameters('adminPassword')]",
-                "secrets": []
-            },
             "networkProfile": {
                 "networkInterfaces": [
                     {
