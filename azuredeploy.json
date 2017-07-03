@@ -3,7 +3,7 @@
   "contentVersion": "1.0.0.0",
   "parameters": {
     "2nd_location": {
-        "value": "West US",
+        "defaultValue": "West US",
         "type": "string",
         "allowedValues": [
           "West India",
@@ -38,7 +38,7 @@
         }
     },
     "3rd_location": {
-      "value": "West Europe",
+      "defaultValue": "West Europe",
       "type": "string",
       "allowedValues": [
         "West India",
@@ -73,7 +73,7 @@
       }
     },
     "4th_location": {
-      "value": "Australia East",
+      "defaultValue": "Australia East",
       "type": "string",
       "allowedValues": [
         "West India",
