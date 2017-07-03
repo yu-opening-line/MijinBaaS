@@ -116,7 +116,7 @@
         }
     },
     "mijin_vm_prefix": {
-        "value": "m",
+        "defaultValue": "m",
         "type": "String",
         "minLength": 1,
         "metadata": {
@@ -124,7 +124,7 @@
         }
     },
     "additional_local_IPs": {
-        "minLength": 0,
+        "defaultValue": "",
         "type": "String",
         "metadata": {
           "description": "Set the Local IP Address to issue the Mijin Account. For more than one, enter with pipe break. (XX.XX.XX.XX | XX.XX.XX.XX)"
