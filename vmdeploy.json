@@ -45,7 +45,7 @@
                     "createOption": "FromImage",
                     "image": {
                       "uri": "[parameters('mijin_vhd_url')]"
-                    }
+                    },
                     "vhd": {
                         "uri": "[concat('https', '://', variables('storageAccounts_disks_name'), '.blob.core.windows.net', concat('/vhds/', variables('virtualMachines_name'),'.vhd'))]"
                     },
