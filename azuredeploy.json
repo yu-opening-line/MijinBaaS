@@ -117,7 +117,6 @@
     },
     "mijin_vm_prefix": {
         "type": "String",
-        "minLength": 1,
         "metadata": {
           "description": "Specify the server name prefix is unique. Valid only lowercase letters(a-z)."
         }
@@ -160,7 +159,6 @@
             "value": "[parameters('admin_password')]"
           },
           "mijin_vm_prefix": {
-            "minLength": 1,
             "value": "[parameters('mijin_vm_prefix')]"
           },
           "mijin_vm_number": {

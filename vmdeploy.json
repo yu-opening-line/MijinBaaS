@@ -47,7 +47,7 @@
                     "name": "[variables('virtualMachines_name')]",
                     "createOption": "FromImage",
                     "vhd": {
-                        "uri": "[concat('https', '://', variables('storageAccounts_disks_name'), '.blob.core.windows.net', concat('/vhds/', variables('virtualMachines_name'),'20170310154041.vhd'))]"
+                        "uri": "[concat('https', '://', variables('storageAccounts_disks_name'), '.blob.core.windows.net', concat('/vhds/', variables('virtualMachines_name'),'.vhd'))]"
                     },
                     "caching": "ReadWrite"
                 },
@@ -137,7 +137,7 @@
                     }
                 },
                 {
-                    "name": "mijin5",
+                    "name": "mijin_port_7778",
                     "properties": {
                         "protocol": "TCP",
                         "sourcePortRange": "*",
@@ -150,7 +150,7 @@
                     }
                 },
                 {
-                    "name": "mijin6",
+                    "name": "mijin_port_7895",
                     "properties": {
                         "protocol": "TCP",
                         "sourcePortRange": "*",
