@@ -174,7 +174,7 @@
       }
     },
     {
-      "comments": "リソース '/subscriptions//resourceGroups/cent-rg/providers/Microsoft.Compute/virtualMachines/centostest01/extensions/CustomScriptForLinux' 㝋ら一般化㝕れ㝾㝗㝟。",
+      "comments": "CustomScriptForLinux:install_mijin.sh",
       "type": "Microsoft.Compute/virtualMachines/extensions",
       "name": "[concat(variables('base_vm_name'), copyIndex(), '/extension')]",
       "apiVersion": "2016-03-30",
