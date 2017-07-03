@@ -53,6 +53,12 @@
                 },
                 "dataDisks": []
             },
+            "osProfile": {
+                "computerName" : "m-mijin-vm0",
+                "adminUsername": "mijin",
+                "adminPassword": "PasswdMijin1",
+                "secrets": []
+            },
             "networkProfile": {
                 "networkInterfaces": [
                     {
