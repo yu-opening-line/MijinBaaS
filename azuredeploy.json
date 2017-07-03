@@ -160,7 +160,6 @@
             "value": "[parameters('admin_password')]"
           },
           "mijin_vm_prefix": {
-            "minLength": 1,
             "value": "[parameters('mijin_vm_prefix')]"
           },
           "mijin_vm_number": {
