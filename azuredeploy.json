@@ -34,7 +34,7 @@
           "East US 2"
         ],
         "metadata": {
-          "description": "Select 2nd Mijin Server Location."
+          "description": "Select 2nd Mijin Server Location. Location should be unique."
         }
     },
     "3rd_location": {
@@ -69,11 +69,11 @@
         "East US 2"
       ],
       "metadata": {
-        "description": "Select 3rd Mijin Server Location."
+        "description": "Select 3rd Mijin Server Location. Location should be unique."
       }
     },
     "4th_location": {
-      "defaultValue": "Australia East",
+      "defaultValue": "West India",
       "type": "string",
       "allowedValues": [
         "West India",
@@ -104,7 +104,7 @@
         "East US 2"
       ],
       "metadata": {
-        "description": "Select 4th Mijin Server Location."
+        "description": "Select 4th Mijin Server Location. Location should be unique."
       }
     },
     "admin_password": {
@@ -112,17 +112,17 @@
         "minLength": 12,
         "maxLength": 72,
         "metadata": {
-          "description": "Password for the Mijin Server. Passwords must be between 12 and 72 characters and have 3 of the following: 1 lower case, 1 upper case, 1 number, and 1 special character."
+          "description": "Admin Password for the Mijin Server. Passwords must be between 12 and 72 characters and have 3 of the following: 1 lower case, 1 upper case, 1 number, and 1 special character."
         }
     },
     "mijin_vm_prefix": {
-        "defaultValue": "m",
         "type": "String",
+        "minLength": 1,
         "metadata": {
-          "description": "Unique Server Name."
+          "description": "Specify the server name prefix is unique. Valid only lowercase letters(a-z)."
         }
     },
-    "additional_local_IPs": {
+    "issue_account_local_IPs": {
         "defaultValue": "",
         "type": "String",
         "metadata": {
@@ -133,7 +133,7 @@
   "variables": {
     "VM_DEPLOY_JSON_URL"  : "https://raw.githubusercontent.com/yu000/MijinBaaS/master/vmdeploy.json",
     "MIJIN_INSTALL_SH_URL": "https://raw.githubusercontent.com/yu000/MijinBaaS/master/scripts/install_mijin.sh",
-    "MIJIN_VHD_URL"       : "https://mmijinvm0disks.blob.core.windows.net/system/Microsoft.Compute/Images/mijinvm/m-osDisk.dbd20053-74aa-40da-a191-56b121ddbf8e.vhd",
+    "MIJIN_INSTALLER_URL" : "https://raw.githubusercontent.com/yu000/MijinBaaS/master/scripts/m.tar.gz",
     "location0": "[resourceGroup().location]",
     "location1": "[parameters('2nd_location')]",
     "location2": "[parameters('3rd_location')]",
@@ -160,13 +160,11 @@
             "value": "[parameters('admin_password')]"
           },
           "mijin_vm_prefix": {
+            "minLength": 1,
             "value": "[parameters('mijin_vm_prefix')]"
           },
           "mijin_vm_number": {
               "value": "[copyIndex()]"
-          },
-          "mijin_vhd_url": {
-            "value": "[variables('MIJIN_VHD_URL')]"
           }
         }
       },
@@ -192,7 +190,9 @@
           "commandToExecute":
             "[concat('sh install_mijin.sh',
               ' ',
-              parameters('additional_local_IPs'),
+              variables('MIJIN_INSTALLER_URL'),
+              ' ',
+              parameters('issue_account_local_IPs'),
               ' ',
               reference('mijindeploy0').outputs.ret_publicIPAddress.value,
               ' ',

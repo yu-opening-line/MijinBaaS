@@ -4,25 +4,26 @@
 INSTALL_HOME=/home/mijin
 LOG=$INSTALL_HOME/mijin_install.log
 
-ADDITIONAL_LOCAL_IPS=$1
-MIJIN_HOST_1=$2
-MIJIN_HOST_2=$3
-MIJIN_HOST_3=$4
-MIJIN_HOST_4=$5
+MIJIN_INSTALLER_URL=$1
+ADDITIONAL_LOCAL_IPS=$2
+MIJIN_HOST_1=$3
+MIJIN_HOST_2=$4
+MIJIN_HOST_3=$5
+MIJIN_HOST_4=$6
 
 #yum -y update -x WALinuxAgent
-#yum -y install screen
-#yum -y install java-1.8.0
+yum -y install screen
+yum -y install java-1.8.0
 
-#systemctl start firewalld.service
-#firewall-cmd --permanent --add-port=7778/tcp
-#firewall-cmd --permanent --add-port=7895/tcp
-#firewall-cmd --reload
-#systemctl enable firewalld.service
+systemctl start firewalld.service
+firewall-cmd --permanent --add-port=7778/tcp
+firewall-cmd --permanent --add-port=7895/tcp
+firewall-cmd --reload
+systemctl enable firewalld.service
 
 cd $INSTALL_HOME
 
-#wget $MIJIN_INSTALLER_URL
+wget $MIJIN_INSTALLER_URL
 tar zxvf m.tar.gz
 cd mijin
 tar zxvf serverjars.tgz
