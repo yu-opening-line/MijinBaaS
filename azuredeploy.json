@@ -184,7 +184,6 @@
             "value": "[variables(concat('adminPassword', copyIndex()))]"
           },
           "mijin_vm_prefix": {
-            "minLength": 1,
             "value": "[parameters('mijin_vm_prefix')]"
           },
           "mijin_vm_number": {
@@ -194,43 +193,7 @@
       },
       "copy": {
         "name"  : "vm_deploy_copy",
-        "count" : 4
-      }
-    },
-    {
-      "comments": "リソース '/subscriptions//resourceGroups/cent-rg/providers/Microsoft.Compute/virtualMachines/centostest01/extensions/CustomScriptForLinux' 㝋ら一般化㝕れ㝾㝗㝟。",
-      "type": "Microsoft.Compute/virtualMachines/extensions",
-      "name": "[concat(variables('base_vm_name'), copyIndex(), '/extension')]",
-      "apiVersion": "2016-03-30",
-      "location": "[variables(concat('location', copyIndex()))]",
-      "properties": {
-        "publisher": "Microsoft.OSTCExtensions",
-        "type": "CustomScriptForLinux",
-        "typeHandlerVersion": "1.0",
-        "settings": {
-          "fileUris": [
-            "[variables('MIJIN_INSTALL_SH_URL')]"
-          ],
-          "commandToExecute":
-            "[concat('sh install_mijin.sh',
-              ' ',
-              variables('MIJIN_INSTALLER_URL'),
-              ' ',
-              parameters('add_itional_local_IPs'),
-              ' ',
-              reference('mijindeploy0').outputs.ret_publicIPAddress.value,
-              ' ',
-              reference('mijindeploy1').outputs.ret_publicIPAddress.value,
-              ' ',
-              reference('mijindeploy2').outputs.ret_publicIPAddress.value,
-              ' ',
-              reference('mijindeploy3').outputs.ret_publicIPAddress.value
-            )]"
-        }
-      },
-      "copy": {
-        "name"  : "mijin_install_copy",
-        "count" : 4
+        "count" : 1
       }
     }
   ],
