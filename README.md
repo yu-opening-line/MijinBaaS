@@ -2,8 +2,8 @@
 
 This Microsoft Azure template deploys the Mijin Infrastructure Server (NIS).
 
-[![Deploy to Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fyu000%2FMijinBaaS%2Fmaster%2Fazuredeploy.json)
-<a href="http://armviz.io/#/?load=https%3A%2F%2Fraw.githubusercontent.com%2Fyu000%2FMijinBaaS%2Fmaster%2Fazuredeploy.json" target="_blank">
+[![Deploy to Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fbitbucket.org%2Fyu001%2Ftech-bureau-baas-mijin-on-azure%2Fraw%2F2c90296d5fa745091636f83301154f9ce720a4c6%2F01_tools%2Fazuredeploy.json)
+<a href="http://armviz.io/#/?load=https%3A%2F%2Fbitbucket.org%2Fyu001%2Ftech-bureau-baas-mijin-on-azure%2Fraw%2F2c90296d5fa745091636f83301154f9ce720a4c6%2F01_tools%2Fazuredeploy.json" target="_blank">
     <img src="http://armviz.io/visualizebutton.png"/>
 </a>
 
