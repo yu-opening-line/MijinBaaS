@@ -179,7 +179,7 @@
     {
       "name": "[concat('mijindeploy', copyIndex())]",
       "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2015-11-01",
+      "apiVersion": "2017-05-10",
       "dependsOn": [],
       "properties": {
         "mode": "Incremental",
@@ -242,7 +242,7 @@
       },
       "copy": {
         "name"  : "mijin_install_copy",
-        "count" : 5
+        "count" : 1
       }
     }
   ],
