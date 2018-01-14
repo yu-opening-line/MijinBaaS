@@ -6,11 +6,7 @@ LOG=$INSTALL_HOME/mijin_install.log
 
 MIJIN_INSTALLER_URL=$1
 ADDITIONAL_LOCAL_IPS=$2
-MIJIN_HOST_1=$3
-MIJIN_HOST_2=$4
-MIJIN_HOST_3=$5
-MIJIN_HOST_4=$6
-MIJIN_HOST_5=$7
+
 
 #yum -y update -x WALinuxAgent
 yum -y install screen
