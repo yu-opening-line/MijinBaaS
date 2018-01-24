@@ -22,7 +22,8 @@
     "publicIPAddresses_ip_name"     : "[concat(variables('virtualMachines_name'), '-ip')]",
     "virtualNetworks_vnet_name"     : "[concat(variables('virtualMachines_name'), '-vnet')]",
     "storageAccounts_diag_name"     : "[concat(parameters('mijin_vm_prefix'),'mijinvm', parameters('mijin_vm_number'), 'diag')]",
-    "storageAccounts_disks_name"    : "[concat(parameters('mijin_vm_prefix'),'mijinvm', parameters('mijin_vm_number'), 'disks')]"
+    "storageAccounts_disks_name"    : "[concat(parameters('mijin_vm_prefix'),'mijinvm', parameters('mijin_vm_number'), 'disks')]",
+    "storageAccounts_disks_name2"    : "[concat(parameters('mijin_vm_prefix'),'mijinvm', parameters('mijin_vm_number'), 'disks2')]"
   },
   "resources": [
     {
@@ -74,6 +75,7 @@
             }
         },
         "dependsOn": [
+            "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccounts_disks_name2'))]",
             "[resourceId('Microsoft.Network/networkInterfaces', variables('networkInterfaces_name'))]",
             "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccounts_diag_name'))]"
         ]
@@ -209,6 +211,21 @@
         },
         "kind": "Storage",
         "name": "[variables('storageAccounts_diag_name')]",
+        "apiVersion": "2016-01-01",
+        "location": "[parameters('location')]",
+        "tags": {},
+        "properties": {},
+        "dependsOn": []
+    },
+    {
+        "comments": "mijin storageAccounts",
+        "type": "Microsoft.Storage/storageAccounts",
+        "sku": {
+            "name": "Standard_LRS",
+            "tier": "Standard"
+        },
+        "kind": "Storage",
+        "name": "[variables('storageAccounts_disks_name2')]",
         "apiVersion": "2016-01-01",
         "location": "[parameters('location')]",
         "tags": {},
