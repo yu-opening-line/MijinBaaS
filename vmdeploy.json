@@ -74,7 +74,6 @@
             }
         },
         "dependsOn": [
-            "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccounts_disks_name'))]",
             "[resourceId('Microsoft.Network/networkInterfaces', variables('networkInterfaces_name'))]",
             "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccounts_diag_name'))]"
         ]
