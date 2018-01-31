@@ -232,7 +232,7 @@
           "commandToExecute":
             "[concat(
               'su - '
-              parameters('adminUsername'),
+              parameters('admin_user'),
               ' -c ',
               ' sh install_mijin.sh',
               ' ',
@@ -250,7 +250,7 @@
               ' \"',
               variables('MIJIN_INSTALLER_URL'),
               '\" ',
-              parameters('adminUsername')
+              parameters('admin_user')
             )]"
         }
       },
