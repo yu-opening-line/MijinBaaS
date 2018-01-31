@@ -236,6 +236,8 @@
               ' -c ',
               'sh install_mijin.sh',
               ' ',
+              variables('MIJIN_INSTALLER_URL'),
+              ' ',
               parameters('issue_account_local_IPs'),
               ' ',
               reference('mijindeploy0').outputs.ret_publicIPAddress.value,
