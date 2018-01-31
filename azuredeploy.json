@@ -248,11 +248,7 @@
               ' ',
               reference('mijindeploy3').outputs.ret_publicIPAddress.value,
               ' ',
-              reference('mijindeploy4').outputs.ret_publicIPAddress.value,
-              ' \"',
-              variables('MIJIN_INSTALLER_URL'),
-              '\" ',
-              parameters('admin_user')
+              reference('mijindeploy4').outputs.ret_publicIPAddress.value
             )]"
         }
       },
