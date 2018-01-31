@@ -234,7 +234,7 @@
               'su - '
               parameters('adminUsername'),
               ' -c ',
-              ' \"sh install_mijin.sh',
+              ' sh install_mijin.sh',
               ' ',
               parameters('issue_account_local_IPs'),
               ' ',
@@ -250,8 +250,7 @@
               ' \"',
               variables('MIJIN_INSTALLER_URL'),
               '\" ',
-              parameters('adminUsername'),
-              '\"'
+              parameters('adminUsername')
             )]"
         }
       },
