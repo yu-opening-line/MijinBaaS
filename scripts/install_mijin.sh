@@ -14,6 +14,7 @@ USERNAME=$8
 INSTALL_HOME=/home/$USERNAME
 LOG=$INSTALL_HOME/mijin_install.log
 
+su - mijin
 
 #yum -y update -x WALinuxAgent
 sudo yum -y install screen

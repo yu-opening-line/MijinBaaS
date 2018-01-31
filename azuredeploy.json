@@ -227,10 +227,8 @@
             "[variables('MIJIN_INSTALL_SH_URL')]"
           ],
           "commandToExecute":
-            "[concat('su - ',
-              parameters('admin_user'),
-              ' -c ',
-              '\"sh install_mijin.sh',
+            "[concat(
+              'sh install_mijin.sh',
               ' ',
               parameters('issue_account_local_IPs'),
               ' ',
@@ -246,8 +244,7 @@
               ' \"',
               variables('MIJIN_INSTALLER_URL'),
               '\" ',
-              parameters('admin_user'),
-              '\"'
+              parameters('admin_user')
             )]"
         }
       },
