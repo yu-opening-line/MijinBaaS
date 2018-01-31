@@ -209,7 +209,7 @@
       },
       "copy": {
         "name"  : "vm_deploy_copy",
-        "count" : 5
+        "count" : 2
       }
     },
     {
@@ -235,12 +235,6 @@
               reference('mijindeploy0').outputs.ret_publicIPAddress.value,
               ' ',
               reference('mijindeploy1').outputs.ret_publicIPAddress.value,
-              ' ',
-              reference('mijindeploy2').outputs.ret_publicIPAddress.value,
-              ' ',
-              reference('mijindeploy3').outputs.ret_publicIPAddress.value,
-              ' ',
-              reference('mijindeploy4').outputs.ret_publicIPAddress.value,
               ' \"',
               variables('MIJIN_INSTALLER_URL'),
               '\" ',
@@ -250,7 +244,7 @@
       },
       "copy": {
         "name"  : "mijin_install_copy",
-        "count" : 5
+        "count" : 2
       }
     }
   ],
