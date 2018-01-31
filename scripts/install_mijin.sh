@@ -16,14 +16,14 @@ LOG=$INSTALL_HOME/mijin_install.log
 
 
 #yum -y update -x WALinuxAgent
-yum -y install screen
-yum -y install java-1.8.0
+sudo yum -y install screen
+sudo yum -y install java-1.8.0
 
-systemctl start firewalld.service
-firewall-cmd --permanent --add-port=7778/tcp
-firewall-cmd --permanent --add-port=7895/tcp
-firewall-cmd --reload
-systemctl enable firewalld.service
+sudo systemctl start firewalld.service
+sudo firewall-cmd --permanent --add-port=7778/tcp
+sudo firewall-cmd --permanent --add-port=7895/tcp
+sudo firewall-cmd --reload
+sudo systemctl enable firewalld.service
 
 cd $INSTALL_HOME
 
@@ -60,4 +60,4 @@ rm -f peers-config_mijinnet.json.ip4
 DIR=`pwd`
 echo "@reboot screen -S mijin -d -m $DIR/startnem.sh" | sort - | uniq - | crontab -
 
-screen -S mijin  -d -m $DIR/startnem.sh
+sudo screen -S mijin  -d -m $DIR/startnem.sh
