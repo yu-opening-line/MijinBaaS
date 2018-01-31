@@ -196,9 +196,6 @@
           "location": {
             "value": "[variables(concat('location', copyIndex()))]"
           },
-          "adminUsername": {
-            "value": "[parameters('admin_user')]"
-          },
           "adminPassword": {
             "value": "[parameters('admin_password')]"
           },
