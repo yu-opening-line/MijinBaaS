@@ -47,7 +47,7 @@
                     "name": "[variables('virtualMachines_name')]",
                     "createOption": "FromImage",
                     "vhd": {
-                        "uri": "[concat( reference(resourceId(resourceGroup().name, 'Microsoft.Storage/storageAccounts', parameters('storageAccounts_disks_name')).primaryEndpoints.blob , 'vhds'', '/',variables('virtualMachines_name'),'.vhd')]"
+                        "uri": "[concat( reference(resourceId(resourceGroup().name, 'Microsoft.Storage/storageAccounts', parameters('storageAccounts_disks_name')).primaryEndpoints.blob , 'vhds', variables('virtualMachines_name'),'.vhd')]"
 
 
 
