@@ -47,7 +47,7 @@
                     "name": "[variables('virtualMachines_name')]",
                     "createOption": "FromImage",
                     "vhd": {
-                        "uri": "[concat('https', '://', variables('storageAccounts_disks_name'), '.blob.core.windows.net', concat('/vhds/', variables('virtualMachines_name'),'.vhd'))]"
+                        "uri": "[concat(reference(variables('storageAccounts_disks_name')).primaryEndpoints.blob, '/vhds/', variables('virtualMachines_name'),'.vhd')]"
                     },
                     "caching": "ReadWrite"
                 },
