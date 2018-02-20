@@ -176,7 +176,7 @@
     "base_vm_name": "[concat(parameters('mijin_vm_prefix'),'-mijin-vm')]"
   },
   "resources": [
-    {
+  {
       "name": "[concat('mijindeploy', copyIndex())]",
       "type": "Microsoft.Resources/deployments",
       "apiVersion": "2017-05-10",
@@ -207,34 +207,6 @@
         "count" : 1
       }
     },
-    {
-      "comments": "CustomScriptForLinux:install_mijin.sh",
-      "type": "Microsoft.Compute/virtualMachines/extensions",
-      "name": "[concat(variables('base_vm_name'), copyIndex(), '/extension')]",
-      "apiVersion": "2016-03-30",
-      "location": "[variables(concat('location', copyIndex()))]",
-      "properties": {
-        "publisher": "Microsoft.OSTCExtensions",
-        "type": "CustomScriptForLinux",
-        "typeHandlerVersion": "1.0",
-        "settings": {
-          "fileUris": [
-            "[variables('MIJIN_INSTALL_SH_URL')]"
-          ],
-          "commandToExecute":
-            "[concat('sh install_mijin.sh',
-              ' ',
-              variables('MIJIN_INSTALLER_URL'),
-              ' ',
-              parameters('issue_account_local_IPs')
-            )]"
-        }
-      },
-      "copy": {
-        "name"  : "mijin_install_copy",
-        "count" : 1
-      }
-    }
   ],
   "outputs": {
   }
