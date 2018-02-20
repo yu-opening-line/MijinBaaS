@@ -96,7 +96,10 @@
                             "id": "[resourceId('Microsoft.Network/publicIPAddresses', variables('publicIPAddresses_ip_name'))]"
                         },
                         "subnet": {
-                            "id": "[concat(resourceId('Microsoft.Network/virtualNetworks', variables('virtualNetworks_vnet_name')), '/subnets/default')]"
+                            "id": "[resourceId('Microsoft.Network/virtualNetworks', variables('virtualNetworks_vnet_name'))]"
+
+
+
                         }
                     }
                 }
