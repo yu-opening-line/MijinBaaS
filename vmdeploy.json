@@ -69,7 +69,7 @@
             "diagnosticsProfile": {
                 "bootDiagnostics": {
                     "enabled": true,
-                    "storageUri": "[concat('https', '://', variables('storageAccounts_diag_name'), '.blob.core.windows.net', '/')]"
+                    "storageUri": "[concat(reference(concat('Microsoft.Storage/storageAccounts/', variables('storageAccounts_diag_name'))).primaryEndpoints.blob)]"
                 }
             }
         },
@@ -96,7 +96,7 @@
                             "id": "[resourceId('Microsoft.Network/publicIPAddresses', variables('publicIPAddresses_ip_name'))]"
                         },
                         "subnet": {
-                            "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', variables('virtualNetworks_vnet_name'), 'default')]"
+                            "id": "[concat(resourceId('Microsoft.Network/virtualNetworks', variables('virtualNetworks_vnet_name')), '/subnets/default')]"
                         }
                     }
                 }
