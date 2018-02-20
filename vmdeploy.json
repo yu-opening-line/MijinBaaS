@@ -96,7 +96,7 @@
                             "id": "[resourceId('Microsoft.Network/publicIPAddresses', variables('publicIPAddresses_ip_name'))]"
                         },
                         "subnet": {
-                            "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', variables('virtualNetworks_vnet_name')), 'default')]"
+                            "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', variables('virtualNetworks_vnet_name')), 'default']"
                         }
                     }
                 }
