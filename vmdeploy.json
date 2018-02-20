@@ -21,8 +21,8 @@
     "networkSecurityGroups_nsg_name": "[concat(variables('virtualMachines_name'), '-nsg')]",
     "publicIPAddresses_ip_name"     : "[concat(variables('virtualMachines_name'), '-ip')]",
     "virtualNetworks_vnet_name"     : "[concat(variables('virtualMachines_name'), '-vnet')]",
-    "storageAccounts_diag_name"     : "[concat(uniquestring(resourceGroup().id), 'mijinvm', parameters('mijin_vm_number'), 'diag')]",
-    "storageAccounts_disks_name"    : "[concat(uniquestring(resourceGroup().id), 'mijinvm', parameters('mijin_vm_number'), 'disks')]"
+    "storageAccounts_diag_name"     : "[concat(uniquestring(resourceGroup().id), 'diag', parameters('mijin_vm_number'))]",
+    "storageAccounts_disks_name"    : "[concat(uniquestring(resourceGroup().id), 'disks', parameters('mijin_vm_number'))]"
   },
   "resources": [
     {
