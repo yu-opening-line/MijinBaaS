@@ -37,8 +37,8 @@ resourceGroup().id, deployment().name{
     "networkSecurityGroups_nsg_name": "[concat(variables('virtualMachines_name'), '-nsg')]",
     "publicIPAddresses_ip_name"     : "[concat(variables('virtualMachines_name'), '-ip')]",
     "virtualNetworks_vnet_name"     : "[concat(variables('virtualMachines_name'), '-vnet')]",
-    "storageAccounts_diag_name"     : "[concat(uniquestring(subscription().subscriptionId, resourceGroup().id, deployment().name), 'diag', parameters('mijin_vm_number'))]",
-    "storageAccounts_disks_name"    : "[concat(uniquestring(subscription().subscriptionId, resourceGroup().id, deployment().name), 'disks', parameters('mijin_vm_number'))]",
+    "storageAccounts_diag_name"     : "[concat(uniquestring(subscription().subscriptionId, resourceGroup().id), 'diag', parameters('mijin_vm_number'))]",
+    "storageAccounts_disks_name"    : "[concat(uniquestring(subscription().subscriptionId, resourceGroup().id), 'disks', parameters('mijin_vm_number'))]",
 
     "sshKeyPath": "[concat('/home/', parameters('adminUsername'), '/.ssh/authorized_keys')]",
     "linuxConfiguration_sshPublicKey": {
