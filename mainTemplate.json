@@ -129,6 +129,9 @@
           "sshPublicKey": {
             "value": "[parameters('sshPublicKey')]"
           },
+          "mijin_vm_prefix": {
+            "value": "[parameters('mijin_vm_prefix')]"
+          },
           "vmSize": {
             "value": "[parameters('vmSize')]"
           },
