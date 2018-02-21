@@ -269,10 +269,6 @@ resourceGroup().id, deployment().name{
     "ret_publicIPAddress" : {
       "type"  : "string",
       "value" : "[reference(variables('publicIPAddresses_ip_name')).ipAddress]"
-    },
-    "ret_vm_name" : {
-      "type"  : "string",
-      "value" : "[variables('virtualMachines_name')]"
     }
   }
 }
