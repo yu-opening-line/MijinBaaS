@@ -29,13 +29,13 @@
     }
   },
   "variables": {
-    "virtualMachines_name"          : "[concat(uniquestring(resourceGroup().id),'-mijin-vm', parameters('mijin_vm_number'))]",
-    "networkInterfaces_name"        : "[concat(uniquestring(resourceGroup().id), '-netifs', parameters('mijin_vm_number'))]",
-    "networkSecurityGroups_nsg_name": "[concat(uniquestring(resourceGroup().id), '-nsg', parameters('mijin_vm_number'))]",
-    "publicIPAddresses_ip_name"     : "[concat(uniquestring(resourceGroup().id), '-ip', parameters('mijin_vm_number'))]",
-    "virtualNetworks_vnet_name"     : "[concat(uniquestring(resourceGroup().id), '-vnet', parameters('mijin_vm_number'))]",
-    "storageAccounts_diag_name"     : "[concat(uniquestring(resourceGroup().id), 'diag', parameters('mijin_vm_number'))]",
-    "storageAccounts_disks_name"    : "[concat(uniquestring(resourceGroup().id), 'disks', parameters('mijin_vm_number'))]",
+    "virtualMachines_name"          : "[concat(uniquestring(deployment().name),'-mijin-vm', parameters('mijin_vm_number'))]",
+    "networkInterfaces_name"        : "[concat(uniquestring(deployment().name), '-netifs', parameters('mijin_vm_number'))]",
+    "networkSecurityGroups_nsg_name": "[concat(uniquestring(deployment().name), '-nsg', parameters('mijin_vm_number'))]",
+    "publicIPAddresses_ip_name"     : "[concat(uniquestring(deployment().name), '-ip', parameters('mijin_vm_number'))]",
+    "virtualNetworks_vnet_name"     : "[concat(uniquestring(deployment().name), '-vnet', parameters('mijin_vm_number'))]",
+    "storageAccounts_diag_name"     : "[concat(uniquestring(deployment().name), 'diag', parameters('mijin_vm_number'))]",
+    "storageAccounts_disks_name"    : "[concat(uniquestring(deployment().name), 'disks', parameters('mijin_vm_number'))]",
 
     "sshKeyPath": "[concat('/home/', parameters('adminUsername'), '/.ssh/authorized_keys')]",
     "linuxConfiguration_sshPublicKey": {
