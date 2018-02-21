@@ -1,4 +1,4 @@
-{
+resourceGroup().id, deployment().name{
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
@@ -29,13 +29,13 @@
     }
   },
   "variables": {
-    "virtualMachines_name"          : "[concat(uniquestring(deployment().name),'-mijin-vm', parameters('mijin_vm_number'))]",
-    "networkInterfaces_name"        : "[concat(uniquestring(deployment().name), '-netifs', parameters('mijin_vm_number'))]",
-    "networkSecurityGroups_nsg_name": "[concat(uniquestring(deployment().name), '-nsg', parameters('mijin_vm_number'))]",
-    "publicIPAddresses_ip_name"     : "[concat(uniquestring(deployment().name), '-ip', parameters('mijin_vm_number'))]",
-    "virtualNetworks_vnet_name"     : "[concat(uniquestring(deployment().name), '-vnet', parameters('mijin_vm_number'))]",
-    "storageAccounts_diag_name"     : "[concat(uniquestring(deployment().name), 'diag', parameters('mijin_vm_number'))]",
-    "storageAccounts_disks_name"    : "[concat(uniquestring(deployment().name), 'disks', parameters('mijin_vm_number'))]",
+    "virtualMachines_name"          : "[concat(uniquestring(subscription().subscriptionId, resourceGroup().id, deployment().name),'-mijin-vm', parameters('mijin_vm_number'))]",
+    "networkInterfaces_name"        : "[concat(uniquestring(subscription().subscriptionId, resourceGroup().id, deployment().name), '-netifs', parameters('mijin_vm_number'))]",
+    "networkSecurityGroups_nsg_name": "[concat(uniquestring(subscription().subscriptionId, resourceGroup().id, deployment().name), '-nsg', parameters('mijin_vm_number'))]",
+    "publicIPAddresses_ip_name"     : "[concat(uniquestring(subscription().subscriptionId, resourceGroup().id, deployment().name), '-ip', parameters('mijin_vm_number'))]",
+    "virtualNetworks_vnet_name"     : "[concat(uniquestring(subscription().subscriptionId, resourceGroup().id, deployment().name), '-vnet', parameters('mijin_vm_number'))]",
+    "storageAccounts_diag_name"     : "[concat(uniquestring(subscription().subscriptionId, resourceGroup().id, deployment().name), 'diag', parameters('mijin_vm_number'))]",
+    "storageAccounts_disks_name"    : "[concat(uniquestring(subscription().subscriptionId, resourceGroup().id, deployment().name), 'disks', parameters('mijin_vm_number'))]",
 
     "sshKeyPath": "[concat('/home/', parameters('adminUsername'), '/.ssh/authorized_keys')]",
     "linuxConfiguration_sshPublicKey": {
@@ -266,6 +266,10 @@
     "ret_publicIPAddress" : {
       "type"  : "string",
       "value" : "[reference(variables('publicIPAddresses_ip_name')).ipAddress]"
+    },
+    "ret_vm_name" : {
+      "type"  : "string",
+      "value" : "[variables('virtualMachines_name')]"
     }
   }
 }
