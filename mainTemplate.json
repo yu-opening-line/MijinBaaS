@@ -11,7 +11,6 @@
       },
       "defaultValue": "https://raw.githubusercontent.com/cloudbees/azure-arm-template/master"
     },
-
     "adminUsername": {
       "type": "String",
       "metadata": {
@@ -51,7 +50,6 @@
         "description": "The location where the solution will be deployed."
       }
     },
-
     "2nd_location": {
       "type": "string",
       "metadata": {
@@ -149,7 +147,7 @@
       "comments": "CustomScriptForLinux:install_mijin.sh",
       "type": "Microsoft.Compute/virtualMachines/extensions",
       "name": "[concat(variables('base_vm_name'), copyIndex(), '/extension')]",
-      "apiVersion": "2018-01-01",
+      "apiVersion": "2016-03-30",
       "location": "[variables(concat('location', copyIndex()))]",
       "properties": {
         "publisher": "Microsoft.OSTCExtensions",
