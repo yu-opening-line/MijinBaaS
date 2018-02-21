@@ -150,12 +150,6 @@
           "description": "Admin Password for the Mijin Server. Passwords must be between 12 and 72 characters and have 3 of the following: 1 lower case, 1 upper case, 1 number, and 1 special character."
         }
     },
-    "mijin_vm_prefix": {
-        "type": "String",
-        "metadata": {
-          "description": "Specify the server name prefix is unique. Valid only lowercase letters(a-z)."
-        }
-    },
     "issue_account_local_IPs": {
         "defaultValue": "",
         "type": "String",
@@ -172,8 +166,7 @@
     "location1": "[parameters('2nd_location')]",
     "location2": "[parameters('3rd_location')]",
     "location3": "[parameters('4th_location')]",
-    "location4": "[parameters('5th_location')]",
-    "base_vm_name": "[concat(parameters('mijin_vm_prefix'),'-mijin-vm')]"
+    "location4": "[parameters('5th_location')]"
   },
   "resources": [
   {
@@ -193,9 +186,6 @@
           },
           "adminPassword": {
             "value": "[parameters('admin_password')]"
-          },
-          "mijin_vm_prefix": {
-            "value": "[parameters('mijin_vm_prefix')]"
           },
           "mijin_vm_number": {
               "value": "[copyIndex()]"
