@@ -140,7 +140,7 @@
       "comments": "CustomScriptForLinux:install_mijin.sh",
       "type": "Microsoft.Compute/virtualMachines/extensions",
       "name": "[concat(variables('base_vm_name'), copyIndex(), '/extension')]",
-      "apiVersion": "2016-03-30",
+      "apiVersion": "2018-01-01",
       "location": "[variables(concat('location', copyIndex()))]",
       "properties": {
         "publisher": "Microsoft.OSTCExtensions",
