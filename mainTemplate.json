@@ -1,0 +1,182 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+
+    "templateBaseUrl": {
+      "type": "string",
+      "metadata": {
+        "description": "Base URL for Marketplace",
+        "artifactsBaseUrl": ""
+      },
+      "defaultValue": "https://raw.githubusercontent.com/cloudbees/azure-arm-template/master"
+    },
+
+    "adminUsername": {
+      "type": "String",
+      "metadata": {
+        "description": "Administrative username for the virtual machines."
+      }
+    },
+    "authenticationType": {
+      "type": "string",
+      "allowedValues": [
+        "password",
+        "sshPublicKey"
+      ]
+    },
+    "adminPassword": {
+      "type": "securestring",
+      "defaultValue": "",
+      "metadata": {
+        "description": "Password for the Virtual Machine."
+      }
+    },
+    "sshPublicKey": {
+      "type": "string",
+      "defaultValue": "",
+      "metadata": {
+        "description": "SSH RSA public key file as a string. Not used if authenticationType of password."
+      }
+    },
+    "vmSize": {
+      "type": "String",
+      "metadata": {
+        "description": "Virtual Machine size."
+      }
+    },
+    "location": {
+      "type": "string",
+      "metadata": {
+        "description": "The location where the solution will be deployed."
+      }
+    },
+
+    "2nd_location": {
+      "type": "string",
+      "metadata": {
+        "description": "The location where the solution will be deployed."
+      }
+    },
+    "3rd_location": {
+      "type": "string",
+      "metadata": {
+        "description": "The location where the solution will be deployed."
+      }
+    },
+    "4th_location": {
+      "type": "string",
+      "metadata": {
+        "description": "The location where the solution will be deployed."
+      }
+    },
+    "5th_location": {
+      "type": "string",
+      "metadata": {
+        "description": "The location where the solution will be deployed."
+      }
+    },
+    "issue_account_local_IPs": {
+      "type": "String",
+      "metadata": {
+        "description": "Set the Local IP Address to issue the Mijin Account. For more than one, enter with pipe break. (XX.XX.XX.XX | XX.XX.XX.XX)"
+      }
+    }
+  },
+  "variables": {
+
+    "MIJIN_INSTALLER_URL" : "https://mijinsolution.file.core.windows.net/mijin/mijin.0.6.93.tar.gz?st=2018-01-29T06%3A00%3A00Z&se=2099-12-31T05%3A59%3A00Z&sp=rl&sv=2016-05-31&sr=f&sig=hYqsu538oD%2FuJbcfwDN6cn7u5WA3DtG%2B4woIhyVNZsk%3D",
+    "VM_DEPLOY_JSON_URL": "[concat(parameters('templateBaseUrl'), '/vmdeploy.json')]",
+    "MIJIN_INSTALL_SH_URL": "[concat(parameters('templateBaseUrl'), '/install_mijin.sh')]",
+    "location0": "[parameters('location')]",
+    "location1": "[parameters('2nd_location')]",
+    "location2": "[parameters('3rd_location')]",
+    "location3": "[parameters('4th_location')]",
+    "location4": "[parameters('5th_location')]"
+  },
+  "resources": [
+    {
+      "name": "[concat('mijindeploy', copyIndex())]",
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2018-02-20",
+      "dependsOn": [],
+      "properties": {
+        "mode": "Incremental",
+        "templateLink": {
+          "uri": "[variables('VM_DEPLOY_JSON_URL')]",
+          "contentVersion": "1.0.0.0"
+        },
+        "parameters": {
+          "location": {
+            "value": "[variables(concat('location', copyIndex()))]"
+          },
+          "adminUsername": {
+            "value": "[parameters('adminUsername')]"
+          },
+          "authenticationType": {
+            "value": "[parameters('authenticationType')]"
+          },
+          "adminPassword": {
+            "value": "[parameters('adminPassword')]"
+          },
+          "sshPublicKey": {
+            "value": "[parameters('sshPublicKey')]"
+          },
+          "vmSize": {
+            "value": "[parameters('vmSize')]"
+          },
+          "mijin_vm_number": {
+              "value": "[copyIndex()]"
+          }
+        }
+      },
+      "copy": {
+        "name"  : "vm_deploy_copy",
+        "count" : 5
+      }
+    },
+    {
+      "comments": "CustomScriptForLinux:install_mijin.sh",
+      "type": "Microsoft.Compute/virtualMachines/extensions",
+      "name": "[concat(variables('base_vm_name'), copyIndex(), '/extension')]",
+      "apiVersion": "2016-03-30",
+      "location": "[variables(concat('location', copyIndex()))]",
+      "properties": {
+        "publisher": "Microsoft.OSTCExtensions",
+        "type": "CustomScriptForLinux",
+        "typeHandlerVersion": "1.0",
+        "settings": {
+          "fileUris": [
+            "[variables('MIJIN_INSTALL_SH_URL')]"
+          ],
+          "commandToExecute":
+            "[concat(
+              'sh install_mijin.sh',
+              ' ',
+              parameters('issue_account_local_IPs'),
+              ' ',
+              reference('mijindeploy0').outputs.ret_publicIPAddress.value,
+              ' ',
+              reference('mijindeploy1').outputs.ret_publicIPAddress.value,
+              ' ',
+              reference('mijindeploy2').outputs.ret_publicIPAddress.value,
+              ' ',
+              reference('mijindeploy3').outputs.ret_publicIPAddress.value,
+              ' ',
+              reference('mijindeploy4').outputs.ret_publicIPAddress.value,
+              ' \"',
+              variables('MIJIN_INSTALLER_URL'),
+              '\" ',
+              parameters('adminUsername')
+            )]"
+        }
+      },
+      "copy": {
+        "name"  : "mijin_install_copy",
+        "count" : 5
+      }
+    }
+  ],
+  "outputs": {
+  }
+}

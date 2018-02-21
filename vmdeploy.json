@@ -5,7 +5,23 @@
     "location": {
       "type": "string"
     },
+    "authenticationType": {
+      "type": "string",
+      "allowedValues": [
+        "password",
+        "sshPublicKey"
+      ]
+    },
+    "adminUsername": {
+      "type": "string"
+    },
     "adminPassword": {
+      "type": "securestring"
+    },
+    "sshPublicKey": {
+      "type": "string"
+    },
+    "vmSize": {
       "type": "string"
     },
     "mijin_vm_number": {
@@ -19,7 +35,23 @@
     "publicIPAddresses_ip_name"     : "[concat(uniquestring(resourceGroup().id), '-ip', parameters('mijin_vm_number'))]",
     "virtualNetworks_vnet_name"     : "[concat(uniquestring(resourceGroup().id), '-vnet', parameters('mijin_vm_number'))]",
     "storageAccounts_diag_name"     : "[concat(uniquestring(resourceGroup().id), 'diag', parameters('mijin_vm_number'))]",
-    "storageAccounts_disks_name"    : "[concat(uniquestring(resourceGroup().id), 'disks', parameters('mijin_vm_number'))]"
+    "storageAccounts_disks_name"    : "[concat(uniquestring(resourceGroup().id), 'disks', parameters('mijin_vm_number'))]",
+
+    "sshKeyPath": "[concat('/home/', parameters('adminUsername'), '/.ssh/authorized_keys')]",
+    "linuxConfiguration_sshPublicKey": {
+      "disablePasswordAuthentication": "true",
+      "ssh": {
+        "publicKeys": [
+          {
+            "path": "[variables('sshKeyPath')]",
+            "keyData": "[parameters('sshPublicKey')]"
+          }
+        ]
+      }
+    },
+    "linuxConfiguration_password": {},
+    "linuxConfiguration": "[variables(concat('linuxConfiguration_', parameters('authenticationType')))]",
+
   },
   "resources": [
     {
@@ -30,7 +62,7 @@
         "location": "[parameters('location')]",
         "properties": {
             "hardwareProfile": {
-                "vmSize": "Standard_A3"
+                "vmSize": "[parameters('vmSize')]"
             },
             "storageProfile": {
                 "imageReference": {
@@ -52,8 +84,9 @@
             },
             "osProfile": {
                 "computerName" : "[variables('virtualMachines_name')]",
-                "adminUsername": "mijin",
+                "adminUsername": "[parameters('adminUsername')]",
                 "adminPassword": "[parameters('adminPassword')]",
+                "linuxConfiguration": "[variables('linuxConfiguration')]",
                 "secrets": []
             },
             "networkProfile": {
