@@ -92,7 +92,8 @@
     "location1": "[parameters('2nd_location')]",
     "location2": "[parameters('3rd_location')]",
     "location3": "[parameters('4th_location')]",
-    "location4": "[parameters('5th_location')]"
+    "location4": "[parameters('5th_location')]",
+    "base_vm_name": "[concat(deployment().name,'-mijin-vm')]"
   },
   "resources": [
     {
@@ -138,7 +139,7 @@
     {
       "comments": "CustomScriptForLinux:install_mijin.sh",
       "type": "Microsoft.Compute/virtualMachines/extensions",
-      "name": "[concat('mijindeploy', copyIndex(), '/extension')]",
+      "name": "[concat(variables('base_vm_name'), copyIndex(), '/extension')]",
       "apiVersion": "2016-03-30",
       "location": "[variables(concat('location', copyIndex()))]",
       "properties": {
