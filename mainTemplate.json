@@ -98,7 +98,7 @@
     {
       "name": "[concat('mijindeploy', copyIndex())]",
       "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2018-02-20",
+      "apiVersion": "2018-01-01",
       "dependsOn": [],
       "properties": {
         "mode": "Incremental",
