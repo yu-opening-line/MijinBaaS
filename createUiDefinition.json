@@ -531,7 +531,18 @@
             },
             "visible": true
           },
-
+          {
+              "name": "mijinVmPrefix",
+              "type": "Microsoft.Common.TextBox",
+              "label": "VM Prefix",
+              "toolTip": "Specify a prefix whose virtual machine name is unique. Valid only lowercase letters(a-z).",
+              "constraints":
+              {
+                  "required": true,
+                  "regex": "^[a-z]{1,10}$",
+                  "validationMessage": "Only lowercase alphanumeric characters are allowed, and the value must be 1-10 characters long."
+              }
+          },
           {
               "name": "issueAccountLocalIPs",
               "type": "Microsoft.Common.TextBox",
@@ -566,6 +577,7 @@
       "4th_location": "[steps('mijin').4thRegion]",
       "5th_location": "[steps('mijin').5thRegion]",
 
+      "mijin_vm_prefix": "[steps('mijin').mijinVmPrefix]",
       "issue_account_local_IPs": "[steps('mijin').issueAccountLocalIPs]"
 
     }

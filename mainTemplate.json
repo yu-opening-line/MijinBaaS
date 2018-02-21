@@ -76,6 +76,12 @@
         "description": "The location where the solution will be deployed."
       }
     },
+    "mijin_vm_prefix": {
+      "type": "String",
+      "metadata": {
+        "description": "Specify the server name prefix. Valid only lowercase letters(a-z)."
+      }
+    },
     "issue_account_local_IPs": {
       "type": "String",
       "metadata": {
@@ -93,7 +99,7 @@
     "location2": "[parameters('3rd_location')]",
     "location3": "[parameters('4th_location')]",
     "location4": "[parameters('5th_location')]",
-    "base_vm_name": "[concat(deployment().name,'-mijin-vm')]"
+    "base_vm_name": "[concat(parameters('mijin_vm_prefix'),'-mijin-vm')]"
   },
   "resources": [
     {
@@ -139,7 +145,7 @@
     {
       "comments": "CustomScriptForLinux:install_mijin.sh",
       "type": "Microsoft.Compute/virtualMachines/extensions",
-      "name": "[concat(concat('mijindeploy', copyIndex()).outputs.ret_vm_name.value, '/extension')]",
+      "name": "[concat(variables('base_vm_name'), copyIndex(), '/extension')]",
       "apiVersion": "2018-01-01",
       "location": "[variables(concat('location', copyIndex()))]",
       "properties": {
