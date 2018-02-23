@@ -53,7 +53,7 @@
       }
     },
     "linuxConfiguration_password": {},
-    "linuxConfiguration": "[variables(concat('linuxConfiguration_', parameters('authenticationType')))]",
+    "linuxConfiguration": "[variables(concat('linuxConfiguration_', parameters('authenticationType')))]"
 
   },
   "resources": [
@@ -129,7 +129,7 @@
                             "id": "[resourceId('Microsoft.Network/publicIPAddresses', variables('publicIPAddresses_ip_name'))]"
                         },
                         "subnet": {
-                            "id": "[concat(resourceId('Microsoft.Network/virtualNetworks', variables('virtualNetworks_vnet_name')), '/subnets/default')]"
+                            "id": "[resourceId(resourceGroup().name, 'Microsoft.Network/virtualNetworks/subnets/', variables('virtualNetworks_vnet_name'), 'default')]"
                         }
                     }
                 }
