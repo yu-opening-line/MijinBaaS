@@ -39,9 +39,16 @@
       }
     },
     "vmSize": {
-      "type": "String",
+      "type": "string",
+      "defaultValue": "Standard_A3",
       "metadata": {
-        "description": "Virtual Machine size."
+        "description": "Size for the Virtual Machine."
+      }
+    },
+    "resourceGroupName": {
+      "type": "string",
+      "metadata": {
+        "description": "Resource Group Name."
       }
     },
     "location": {
@@ -88,7 +95,6 @@
     }
   },
   "variables": {
-
     "MIJIN_INSTALLER_URL" : "https://raw.githubusercontent.com/yu000/MijinBaaS/master/mijin.0.6.93.tar.gz",
     "VM_DEPLOY_JSON_URL": "https://raw.githubusercontent.com/yu000/MijinBaaS/master/vmdeploy.json",
     "MIJIN_INSTALL_SH_URL": "https://raw.githubusercontent.com/yu000/MijinBaaS/master/install_mijin.sh",
@@ -115,8 +121,8 @@
           "location": {
             "value": "[variables(concat('location', copyIndex()))]"
           },
-          "resourceGroup": {
-            "value": "[variables('location0')]"
+          "resourceGroupName": {
+            "value": "[parameters('resourceGroupName')]"
           },
           "adminUsername": {
             "value": "[parameters('adminUsername')]"
