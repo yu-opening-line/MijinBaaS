@@ -5,6 +5,9 @@
     "location": {
       "type": "string"
     },
+    "resourceGroup": {
+      "type": "string"
+    },
     "authenticationType": {
       "type": "string",
       "allowedValues": [
@@ -129,7 +132,7 @@
                             "id": "[resourceId('Microsoft.Network/publicIPAddresses', variables('publicIPAddresses_ip_name'))]"
                         },
                         "subnet": {
-                          "id": "[resourceId(parameters('location'), 'Microsoft.Network/virtualNetworks/subnets/', variables('virtualNetworks_vnet_name'), 'default')]"
+                            "id": "[resourceId(parameters('resourceGroup'), 'Microsoft.Network/virtualNetworks/subnets/', variables('virtualNetworks_vnet_name'), 'default')]"
                         }
                     }
                 }

@@ -115,6 +115,9 @@
           "location": {
             "value": "[variables(concat('location', copyIndex()))]"
           },
+          "resourceGroup": {
+            "value": "[variables('location0')]"
+          },
           "adminUsername": {
             "value": "[parameters('adminUsername')]"
           },
