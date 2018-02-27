@@ -26,7 +26,7 @@ systemctl enable firewalld.service
 
 cd $INSTALL_HOME
 
-INSTALLER=`echo  $MIJIN_INSTALLER_URL | sed -r 's/^.*(mijin\..*\.tar\.gz)\?.*$/\1/'`
+INSTALLER=`echo $MIJIN_INSTALLER_URL | sed -r 's/^.*(mijin\..*\.tar\.gz)/\1/'`
 
 wget $MIJIN_INSTALLER_URL -O $INSTALLER
 
