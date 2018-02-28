@@ -116,7 +116,7 @@
         "comments": "mijin networkInterfaces",
         "type": "Microsoft.Network/networkInterfaces",
         "name": "[variables('networkInterfaces_name')]",
-        "apiVersion": "2018-01-01",
+        "apiVersion": "2017-08-01",
         "location": "[parameters('location')]",
         "properties": {
             "ipConfigurations": [
