@@ -45,12 +45,6 @@
         "description": "Size for the Virtual Machine."
       }
     },
-    "resourceGroupName": {
-      "type": "string",
-      "metadata": {
-        "description": "Resource Group Name."
-      }
-    },
     "location": {
       "type": "string",
       "metadata": {
@@ -120,9 +114,6 @@
         "parameters": {
           "location": {
             "value": "[variables(concat('location', copyIndex()))]"
-          },
-          "resourceGroupName": {
-            "value": "[parameters('resourceGroupName')]"
           },
           "adminUsername": {
             "value": "[parameters('adminUsername')]"
