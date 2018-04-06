@@ -38,8 +38,9 @@ rm -f $INSTALLER
 cd mijin
 tar zxvf serverjars.tgz
 
-IP=`curl ifconfig.co`
-sed -e "s/%IP%/$MIJIN_HOST_1/" config-user.properties.org >config-user.properties.ip
+
+HOST_IP=`curl ifconfig.co`
+sed -e "s/%IP%/$HOST_IP/" config-user.properties.org >config-user.properties.ip
 sed -e "s/%AddItionalLocalIps%/$ADDITIONAL_LOCAL_IPS/" config-user.properties.ip >config-user.properties
 
 sed -e "s/%IP1%/$MIJIN_HOST_1/" peers-config_mijinnet.json.org >peers-config_mijinnet.json.ip1
