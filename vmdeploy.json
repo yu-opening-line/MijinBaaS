@@ -103,12 +103,12 @@
                     "enabled": true,
                     "storageUri": "[concat(reference(concat('Microsoft.Storage/storageAccounts/', variables('storageAccounts_diag_name'))).primaryEndpoints.blob)]"
                 }
-            },
-            "plan": {
-                "name": "mijin BaaS on Azure Vhd",
-                "publisher": "baas-techbureau",
-                "product": "mijin BaaS on Azure Vhd"  
             }
+        },
+        "plan": {
+            "name": "mijin BaaS on Azure Vhd",
+            "publisher": "baas-techbureau",
+            "product": "mijin BaaS on Azure Vhd"
         },
         "dependsOn": [
             "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccounts_disks_name'))]",
