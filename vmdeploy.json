@@ -75,13 +75,10 @@
                     "version": "latest"
                 },
                 "osDisk": {
-                    "osType": "Linux",
-                    "name": "[variables('virtualMachines_name')]",
-                    "createOption": "FromImage",
-                    "vhd": {
-                        "uri": "[concat(reference(concat('Microsoft.Storage/storageAccounts/', variables('storageAccounts_disks_name'))).primaryEndpoints.blob , 'vhds/', variables('virtualMachines_name'),'.vhd')]"
-                    },
-                    "caching": "ReadWrite"
+                    "createOption": "fromImage",
+                    "managedDisk": {
+                        "storageAccountType": "Premium_LRS"
+                    }
                 },
                 "dataDisks": []
             },
