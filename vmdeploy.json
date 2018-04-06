@@ -106,9 +106,9 @@
             }
         },
         "plan": {
-            "name": "mijin BaaS on Azure Vhd",
+            "name": "b1327623-d29b-4cc1-b833-85067dcc7bce",
             "publisher": "baas-techbureau",
-            "product": "mijin BaaS on Azure Vhd"
+            "product": "mijin_baas_vhd"
         },
         "dependsOn": [
             "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccounts_disks_name'))]",
