@@ -108,7 +108,7 @@
         "plan": {
             "name": "b1327623-d29b-4cc1-b833-85067dcc7bce",
             "publisher": "baas-techbureau",
-            "product": "mijin_baas_vhd"
+            "product": "b1327623-d29b-4cc1-b833-85067dcc7bce"
         },
         "dependsOn": [
             "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccounts_disks_name'))]",
