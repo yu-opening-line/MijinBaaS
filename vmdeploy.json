@@ -72,16 +72,13 @@
                     "publisher": "baas-techbureau",
                     "offer": "b1327623-d29b-4cc1-b833-85067dcc7bce",
                     "sku": "mijin_baas_vhd",
-                    "version": "1.0.3"
+                    "version": "latest"
                 },
                 "osDisk": {
-                    "osType": "Linux",
-                    "name": "[variables('virtualMachines_name')]",
-                    "createOption": "FromImage",
-                    "vhd": {
-                        "uri": "[concat(reference(concat('Microsoft.Storage/storageAccounts/', variables('storageAccounts_disks_name'))).primaryEndpoints.blob , 'vhds/', variables('virtualMachines_name'),'.vhd')]"
-                    },
-                    "caching": "ReadWrite"
+                    "createOption": "fromImage",
+                    "managedDisk": {
+                        "storageAccountType": "Premium_LRS"
+                    }
                 },
                 "dataDisks": []
             },
