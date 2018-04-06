@@ -75,10 +75,12 @@
                     "version": "latest"
                 },
                 "osDisk": {
-                    "createOption": "fromImage",
-                    "managedDisk": {
-                        "storageAccountType": "Standard_LRS"
-                    }
+                    "name": "[variables('virtualMachines_name')]",
+                    "createOption": "FromImage",
+                    "vhd": {
+                        "uri": "[concat(reference(concat('Microsoft.Storage/storageAccounts/', variables('storageAccounts_disks_name'))).primaryEndpoints.blob , 'vhds/', variables('virtualMachines_name'),'.vhd')]"
+                    },
+                    "caching": "ReadWrite"
                 },
                 "dataDisks": []
             },
