@@ -15,6 +15,7 @@ INSTALL_HOME=/home/$USERNAME
 LOG=$INSTALL_HOME/mijin_install.log
 
 #yum -y update -x WALinuxAgent
+yum -y install wget
 yum -y install screen
 yum -y install java-1.8.0
 
@@ -27,10 +28,6 @@ systemctl enable firewalld.service
 cd $INSTALL_HOME
 
 INSTALLER=`echo $MIJIN_INSTALLER_URL | sed -r 's/^.*(mijin\..*\.tar\.gz)/\1/'`
-
-echo $MIJIN_INSTALLER_URL >a.txt
-echo $INSTALLER >>a.txt
-
 
 wget $MIJIN_INSTALLER_URL -O $INSTALLER
 
