@@ -105,9 +105,9 @@
                 }
             },
             "plan": {
-                "name": "mijin-on-centos",
+                "name": "mijin BaaS on Azure Vhd",
                 "publisher": "baas-techbureau",
-                "product": "mijin-on-centos"  
+                "product": "mijin BaaS on Azure Vhd"  
             }
         },
         "dependsOn": [
