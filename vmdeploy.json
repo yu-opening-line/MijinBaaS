@@ -69,9 +69,9 @@
             },
             "storageProfile": {
                 "imageReference": {
-                    "publisher": "OpenLogic",
-                    "offer": "CentOS",
-                    "sku": "7.2",
+                    "publisher": "baas-techbureau",
+                    "offer": "b1327623-d29b-4cc1-b833-85067dcc7bce",
+                    "sku": "mijin_baas_vhd",
                     "version": "latest"
                 },
                 "osDisk": {

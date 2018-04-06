@@ -550,11 +550,12 @@
               "name": "issueAccountLocalIPs",
               "type": "Microsoft.Common.TextBox",
               "label": "Issue Account LocalIPs",
+              "defaultValue": "*.*.*.*",
               "toolTip": "Set the Local IP Address to issue the Mijin Account. For more than one, enter with pipe break. (XX.XX.XX.XX|XX.XX.XX.XX)",
               "constraints":
               {
                   "required": true,
-                  "regex": "^[0-9][0-9|.]*$",
+                  "regex": "^[0-9][0-9|.|*]*$",
                   "validationMessage": "Set the Local IP Address to issue the Mijin Account. For more than one, enter with pipe break. (XX.XX.XX.XX|XX.XX.XX.XX)"
               }
           }
@@ -574,8 +575,6 @@
       "sshPublicKey": "[basics('adminCredentials').sshPublicKey]",
 
       "vmSize": "[steps('VirtualMachineConfig').vmSize]",
-
-      "resourceGroupName": "[steps('VirtualMachineConfig').vmSize.resourceGroup]",
 
       "2nd_location": "[steps('mijin').2ndRegion]",
       "3rd_location": "[steps('mijin').3rdRegion]",
