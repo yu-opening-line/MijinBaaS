@@ -91,7 +91,7 @@
   "variables": {
     "MIJIN_INSTALLER_URL" : "https://raw.githubusercontent.com/yu000/MijinBaaS/master/mijin.0.6.93.tar.gz",
     "VM_DEPLOY_JSON_URL": "https://raw.githubusercontent.com/yu000/MijinBaaS/master/vmdeploy.json",
-    "MIJIN_INSTALL_SH_URL": "https://raw.githubusercontent.com/yu000/MijinBaaS/master/installmijin.sh",
+    "MIJIN_INSTALL_SH_URL": "https://raw.githubusercontent.com/yu000/MijinBaaS/master/install_mijin.sh",
     "location0": "[parameters('location')]",
     "location1": "[parameters('2nd_location')]",
     "location2": "[parameters('3rd_location')]",

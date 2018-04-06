@@ -28,6 +28,10 @@ cd $INSTALL_HOME
 
 INSTALLER=`echo $MIJIN_INSTALLER_URL | sed -r 's/^.*(mijin\..*\.tar\.gz)/\1/'`
 
+echo $MIJIN_INSTALLER_URL >a.txt
+echo $INSTALLER >>a.txt
+
+
 wget $MIJIN_INSTALLER_URL -O $INSTALLER
 
 tar zxvf $INSTALLER
