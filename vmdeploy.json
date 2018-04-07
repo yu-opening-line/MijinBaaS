@@ -105,11 +105,6 @@
                 }
             }
         },
-        "plan": {
-            "name": "mijin_baas_vhd",
-            "publisher": "baas-techbureau",
-            "product": "b1327623-d29b-4cc1-b833-85067dcc7bce"
-        },
         "dependsOn": [
             "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccounts_disks_name'))]",
             "[resourceId('Microsoft.Network/networkInterfaces', variables('networkInterfaces_name'))]",
