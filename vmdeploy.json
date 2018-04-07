@@ -106,7 +106,7 @@
             }
         },
         "plan": {
-            "name": "mijin BaaS on Azure",
+            "name": "mijin-BaaS-on-Azure",
             "publisher": "baas-techbureau",
             "product": "b1327623-d29b-4cc1-b833-85067dcc7bce"
         },
