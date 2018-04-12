@@ -150,33 +150,36 @@
       "apiVersion": "2017-12-01",
       "location": "[variables(concat('location', copyIndex()))]",
       "properties": {
-        "publisher": "Microsoft.OSTCExtensions",
-        "type": "CustomScriptForLinux",
+        "publisher": "Microsoft.Azure.Extensions",
+        "type": "CustomScript",
         "typeHandlerVersion": "2.0",
+        "autoUpgradeMinorVersion": true,
         "settings": {
           "fileUris": [
             "[variables('MIJIN_INSTALL_SH_URL')]"
           ],
-          "commandToExecute":
-            "[concat(
-              'sh install_mijin.sh',
-              ' ',
-              parameters('issue_account_local_IPs'),
-              ' ',
-              reference('mijindeploy0').outputs.ret_publicIPAddress.value,
-              ' ',
-              reference('mijindeploy1').outputs.ret_publicIPAddress.value,
-              ' ',
-              reference('mijindeploy2').outputs.ret_publicIPAddress.value,
-              ' ',
-              reference('mijindeploy3').outputs.ret_publicIPAddress.value,
-              ' ',
-              reference('mijindeploy4').outputs.ret_publicIPAddress.value,
-              ' \"',
-              variables('MIJIN_INSTALLER_URL'),
-              '\" ',
-              parameters('adminUsername')
-            )]"
+          "protectedSettings": {
+            "commandToExecute":
+              "[concat(
+                'sh install_mijin.sh',
+                ' ',
+                parameters('issue_account_local_IPs'),
+                ' ',
+                reference('mijindeploy0').outputs.ret_publicIPAddress.value,
+                ' ',
+                reference('mijindeploy1').outputs.ret_publicIPAddress.value,
+                ' ',
+                reference('mijindeploy2').outputs.ret_publicIPAddress.value,
+                ' ',
+                reference('mijindeploy3').outputs.ret_publicIPAddress.value,
+                ' ',
+                reference('mijindeploy4').outputs.ret_publicIPAddress.value,
+                ' \"',
+                variables('MIJIN_INSTALLER_URL'),
+                '\" ',
+                parameters('adminUsername')
+              )]"
+          }
         }
       },
       "copy": {
