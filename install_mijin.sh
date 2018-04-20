@@ -58,6 +58,11 @@ rm -f peers-config_mijinnet.json.ip2
 rm -f peers-config_mijinnet.json.ip3
 rm -f peers-config_mijinnet.json.ip4
 
+rm -f ./.DS_Store
+rm -f ./._*
+rm -f ./serverjars/.DS_Store
+rm -f ./serverjars/._*
+
 DIR=`pwd`
 echo "@reboot screen -S mijin -d -m $DIR/startnem.sh" | sort - | uniq - | crontab -
 
