@@ -178,7 +178,10 @@
               ' \"',
               variables('MIJIN_INSTALLER_URL'),
               '\" ',
-              parameters('adminUsername')
+              parameters('adminUsername'),
+              ' \"',
+              copyIndex(),
+              '\"'
             )]"
         }
       },
